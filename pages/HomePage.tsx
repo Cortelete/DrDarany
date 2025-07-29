@@ -23,10 +23,10 @@ const HomePage: React.FC = () => {
   };
   
   const targetClients = [
-    { name: 'Polícia Militar do Paraná', logoSrc: '/images/logo_pmpr.png', singular: 'policial militar do Paraná' },
-    { name: 'Polícia Civil do Paraná', logoSrc: '/images/logo_pcpr.png', singular: 'policial civil do Paraná' },
-    { name: 'Guarda Civil Municipal', logoSrc: '/images/logo_gcm.png', singular: 'guarda civil municipal' },
-    { name: 'Forças Armadas', logoSrc: '/images/logo_fa.png', singular: 'membro das forças armadas' },
+    { name: 'Polícia Militar do Paraná', logoSrc: '/images/PMPR.png', singular: 'policial militar do Paraná' },
+    { name: 'Polícia Civil do Paraná', logoSrc: '/images/PCPR.png', singular: 'policial civil do Paraná' },
+    { name: 'Guarda Civil Municipal', logoSrc: '/images/GCM.png', singular: 'guarda civil municipal' },
+    { name: 'Forças Armadas', logoSrc: '/images/FA.png', singular: 'membro das forças armadas' },
   ];
   
   return (
