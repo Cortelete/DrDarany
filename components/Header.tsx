@@ -64,7 +64,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2 group">
             <img 
-                src="/images/logo_darany.png" 
+                src="/images/logoDrD.png" 
                 alt="Logo Darany Advocacia" 
                 className="h-12 w-12 object-contain mix-blend-screen dark:mix-blend-normal"
             />
