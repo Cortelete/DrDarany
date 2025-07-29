@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           <div className="md:col-span-1 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
               <img 
-                src="/images/logo_darany.png"
+                src="/images/logoDrD.png"
                 alt="Logo Darany Advocacia"
                 className="h-12 w-12 object-contain mix-blend-screen dark:mix-blend-normal"
               />
