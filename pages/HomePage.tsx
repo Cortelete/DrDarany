@@ -132,10 +132,15 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 max-w-4xl mx-auto">
               {targetClients.map((client, index) => (
                 <div key={index} className="text-center">
-                    <button onClick={() => setOpenClient(openClient === index ? null : index)} className="w-full text-center p-4 rounded-lg hover:bg-brand-light-gray dark:hover:bg-brand-gray transition-colors duration-300">
-                        <div className="flex items-center justify-center h-24 w-24 mx-auto mb-4 rounded-full bg-brand-light dark:bg-brand-dark p-2 overflow-hidden">
-                            <img src={client.logoSrc} alt={`Logo ${client.name}`} className="h-full w-full object-contain" />
-                        </div>
+                    <button 
+                        onClick={() => setOpenClient(openClient === index ? null : index)} 
+                        className="w-full group text-center p-4 rounded-lg transition-colors duration-300"
+                    >
+                        <img 
+                            src={client.logoSrc} 
+                            alt={`Logo ${client.name}`} 
+                            className="h-28 w-28 mx-auto mb-4 object-contain transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)]" 
+                        />
                         <h3 className="font-semibold text-sm md:text-base text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide text-shadow-heading">{client.name}</h3>
                     </button>
                     <AnimatePresence>
