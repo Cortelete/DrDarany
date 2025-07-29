@@ -68,7 +68,7 @@ const HomePage: React.FC = () => {
             className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
           >
             <img
-                src="/images/logo_darany.png"
+                src="/images/logoDrD.png"
                 alt=""
                 className="w-1/2 md:w-1/3 h-auto opacity-5 dark:opacity-[0.02] mix-blend-luminosity"
             />
@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
               className="mb-8"
             >
               <img
-                src="/images/logo_darany.png"
+                src="/images/logoDrD.png"
                 alt="Logo Darany Advocacia"
                 className="h-32 w-32 md:h-40 md:w-40 object-contain mix-blend-screen dark:mix-blend-normal"
               />
