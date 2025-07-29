@@ -44,7 +44,7 @@ const SchedulePage: React.FC = () => {
     <div className="bg-transparent py-16 md:py-24">
       <div className="container mx-auto px-6">
         <AnimatedSection className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-serif text-brand-gold uppercase tracking-wider">Agende sua Consulta</h1>
+          <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient">Agende sua Consulta</h1>
           <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             A forma mais rápida de agendar é via WhatsApp. Preencha os dados abaixo e envie-nos uma mensagem direta.
           </p>

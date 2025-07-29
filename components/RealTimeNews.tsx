@@ -100,7 +100,7 @@ const RealTimeNews: React.FC = () => {
     <AnimatedSection className="bg-brand-light-gray dark:bg-brand-gray py-16 md:py-20">
         <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-serif text-brand-gold uppercase tracking-wider">Notícias Jurídicas</h2>
+                <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient">Notícias Jurídicas</h2>
                 <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300">As últimas atualizações do mundo do direito, em tempo real.</p>
             </div>
             

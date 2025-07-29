@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
               <img 
                 src="/images/logoDrD.png"
                 alt="Logo Darany Advocacia"
-                className="h-12 w-12 object-contain mix-blend-screen dark:mix-blend-normal"
+                className="h-12 w-12 object-contain dark:mix-blend-screen"
               />
               <div>
                 <h3 className="text-xl font-serif text-brand-gold">Darany Luiz Alves de Oliveira</h3>

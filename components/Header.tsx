@@ -66,7 +66,7 @@ const Header: React.FC = () => {
             <img 
                 src="/images/logoDrD.png" 
                 alt="Logo Darany Advocacia" 
-                className="h-12 w-12 object-contain mix-blend-screen dark:mix-blend-normal"
+                className="h-12 w-12 object-contain dark:mix-blend-screen"
             />
             <span className="hidden sm:block text-sm md:text-lg font-sans font-bold text-brand-text-dark dark:text-brand-text-light tracking-wider transition-all duration-300 group-hover:text-brand-gold">
               DARANY LUIZ ALVES DE OLIVEIRA

@@ -18,7 +18,7 @@ const AboutPage: React.FC = () => {
     <div className="bg-transparent py-16 md:py-24">
       <div className="container mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-serif text-brand-gold uppercase tracking-wider">Nossa Trajetória</h1>
+          <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient">Nossa Trajetória</h1>
           <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">Conheça a história, os princípios e o compromisso que nos movem a cada dia.</p>
         </AnimatedSection>
 
@@ -66,7 +66,7 @@ const AboutPage: React.FC = () => {
 
         <AnimatedSection className="mb-20">
             <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-serif text-brand-gold uppercase tracking-wider">Nossos Pilares</h2>
+                <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient">Nossos Pilares</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 {values.map((item, index) => (
@@ -79,7 +79,7 @@ const AboutPage: React.FC = () => {
         </AnimatedSection>
         
         <AnimatedSection>
-            <h2 className="text-2xl md:text-3xl font-serif text-center text-brand-gold mb-8 uppercase tracking-wider">Qualificações</h2>
+            <h2 className="text-2xl md:text-3xl font-serif text-center mb-8 uppercase tracking-wider text-gold-gradient">Qualificações</h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {[
                     'Ex-militar das Forças Armadas',

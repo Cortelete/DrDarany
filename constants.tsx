@@ -37,7 +37,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
   { id: 'militar', name: 'Direito Militar', 
     description: 'Defesa especializada em crimes militares e processos administrativos disciplinares (PAD, sindicância). Atuação em favor de Policiais Militares, Civis, Guardas Municipais e membros das Forças Armadas.', 
     examples: 'Defesa em inquéritos (IPM), deserção, insubordinação, PADs, anulação de atos, reintegração.', 
-    icon: <ShieldIcon className="w-12 h-12 text-brand-gold" />,
+    icon: ShieldIcon,
     modalContent: (<>
         <p className="mb-4">O Direito Militar é um ramo especializado que lida com as normas que regulam as Forças Armadas e Forças Auxiliares (Policiais e Bombeiros Militares). Nossa atuação é focada em proteger a carreira e os direitos dos militares que dedicam suas vidas à segurança da sociedade.</p>
         <p>Compreendemos as particularidades da vida na caserna e a rigidez da hierarquia e disciplina, oferecendo uma defesa técnica que considera todos esses aspectos.</p>
@@ -52,7 +52,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
   { id: 'penal', name: 'Direito Penal Comum', 
     description: 'Defesa técnica e estratégica em todas as fases do processo criminal, desde o inquérito policial até a execução da pena, assegurando os direitos e garantias fundamentais do acusado.', 
     examples: 'Acompanhamento em delegacias, audiências de custódia, defesa em processos criminais.', 
-    icon: <GavelIcon className="w-12 h-12 text-brand-gold" />,
+    icon: GavelIcon,
     modalContent: (<>
         <p className="mb-4">O Direito Penal trata dos crimes e das punições. Se você está sendo investigado ou acusado de um crime, é seu direito fundamental ter uma defesa justa. Atuamos de forma estratégica para garantir que seus direitos sejam respeitados em todas as etapas.</p>
         <p>Desde o acompanhamento na delegacia até a sua defesa perante o juiz, nosso objetivo é buscar o melhor resultado possível para o seu caso.</p>
@@ -67,7 +67,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
   { id: 'familia', name: 'Direito de Família e Sucessões', 
     description: 'Atuação em questões como divórcio, guarda de filhos, pensão alimentícia, inventários e testamentos, buscando soluções justas e humanas.', 
     examples: 'Divórcio consensual e litigioso, partilha de bens, inventário judicial e extrajudicial.', 
-    icon: <FamilyIcon className="w-12 h-12 text-brand-gold" />,
+    icon: FamilyIcon,
     modalContent: (<>
         <p className="mb-4">Questões de família e herança são delicadas e exigem uma abordagem sensível e ao mesmo tempo firme. Nosso trabalho é encontrar soluções que preservem os laços e o patrimônio, mesmo em momentos de conflito.</p>
         <p>Seja para formalizar um divórcio, definir a guarda dos filhos, ou realizar a partilha de bens de um ente querido, estamos aqui para orientar e garantir que o processo seja o mais tranquilo e justo possível.</p>
@@ -82,7 +82,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
   { id: 'civil', name: 'Direito Civil', 
     description: 'Soluções para uma vasta gama de questões civis, incluindo contratos, responsabilidade civil, obrigações e direitos reais.', 
     examples: 'Ações de indenização por danos morais e materiais, cobranças, elaboração de contratos.', 
-    icon: <BuildingIcon className="w-12 h-12 text-brand-gold" />,
+    icon: BuildingIcon,
     modalContent: (<>
         <p className="mb-4">O Direito Civil rege as relações do dia a dia entre pessoas e empresas. Problemas com contratos, dívidas, ou situações que causaram algum tipo de dano (moral ou material) se enquadram aqui.</p>
         <p>Atuamos para resolver esses conflitos, seja através de acordos ou de ações judiciais, buscando sempre a reparação do seu direito de forma ágil e eficaz.</p>
@@ -97,7 +97,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
   { id: 'consumidor', name: 'Direito do Consumidor', 
     description: 'Proteção dos direitos do consumidor em conflitos com fornecedores, buscando reparações e cumprimento da lei.', 
     examples: 'Ações contra cobranças indevidas, produtos defeituosos, publicidade enganosa.', 
-    icon: <ShoppingCartIcon className="w-12 h-12 text-brand-gold" />,
+    icon: ShoppingCartIcon,
     modalContent: (<>
         <p className="mb-4">Como consumidor, você tem direitos. Se uma empresa não cumpriu o combinado, vendeu um produto com defeito, ou fez uma cobrança indevida, a lei está do seu lado.</p>
         <p>Nossa função é fazer valer o Código de Defesa do Consumidor, buscando a troca do produto, a devolução do seu dinheiro, ou uma indenização pelo transtorno causado.</p>

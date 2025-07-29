@@ -83,7 +83,7 @@ const HomePage: React.FC = () => {
               <img
                 src="/images/logoDrD.png"
                 alt="Logo Darany Advocacia"
-                className="h-32 w-32 md:h-40 md:w-40 object-contain mix-blend-screen dark:mix-blend-normal"
+                className="h-32 w-32 md:h-40 md:w-40 object-contain dark:mix-blend-screen"
               />
             </motion.div>
             <motion.h1 
@@ -93,7 +93,7 @@ const HomePage: React.FC = () => {
               className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-text-dark dark:text-brand-text-light mb-4 leading-tight uppercase"
             >
               ADVOCACIA ESPECIALISTA EM
-              <span className="block text-brand-gold mt-2">DIREITO MILITAR</span>
+              <span className="block text-gold-gradient mt-2">DIREITO MILITAR</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -129,7 +129,7 @@ const HomePage: React.FC = () => {
         {/* Target Clients Section */}
         <AnimatedSection className="container mx-auto px-6">
           <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-serif text-brand-gold uppercase tracking-wider">Para Quem Atuamos</h2>
+              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient">Para Quem Atuamos</h2>
               <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300">Representação dedicada aos agentes da segurança pública e forças armadas.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 max-w-4xl mx-auto">
@@ -164,26 +164,31 @@ const HomePage: React.FC = () => {
         {/* Practice Areas Section */}
         <AnimatedSection className="container mx-auto px-6">
           <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-serif text-brand-gold uppercase tracking-wider">Nossas Especialidades</h2>
+              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient">Nossas Especialidades</h2>
               <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300">Soluções jurídicas para proteger seus direitos e sua carreira.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {PRACTICE_AREAS.map((area) => (
-              <button key={area.id} onClick={() => handleOpenModal(area)} className="group text-left relative bg-brand-light-gray dark:bg-brand-gray p-8 rounded-xl shadow-lg border border-transparent hover:border-brand-gold/30 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-gold-glow">
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="mb-5">{area.icon}</div>
-                    <h3 className="text-lg md:text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide">{area.name}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">{area.description}</p>
-                    <span className="text-brand-gold font-semibold text-sm mt-auto pt-2 uppercase tracking-wide">Saiba Mais &rarr;</span>
-                  </div>
-              </button>
-              ))}
+              {PRACTICE_AREAS.map((area) => {
+                const IconComponent = area.icon;
+                return (
+                  <button key={area.id} onClick={() => handleOpenModal(area)} className="group text-left relative bg-brand-light-gray dark:bg-brand-gray p-8 rounded-xl shadow-lg animated-border-card gold-border reflection-hover">
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="mb-5">
+                          <IconComponent className="w-12 h-12 text-brand-gold transition-colors duration-300 group-hover:text-brand-text-dark" />
+                        </div>
+                        <h3 className="text-lg md:text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">{area.name}</h3>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow transition-colors duration-300 group-hover:text-brand-text-dark">{area.description}</p>
+                        <span className="text-brand-gold font-semibold text-sm mt-auto pt-2 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">Saiba Mais &rarr;</span>
+                      </div>
+                  </button>
+                )
+              })}
           </div>
         </AnimatedSection>
 
         {/* CTA Section */}
         <AnimatedSection className="container mx-auto px-6 text-center py-16">
-          <h2 className="text-2xl md:text-3xl font-serif text-brand-gold mb-4 uppercase tracking-wider">Pronto para dar o próximo passo?</h2>
+          <h2 className="text-2xl md:text-3xl font-serif mb-4 uppercase tracking-wider text-gold-gradient">Pronto para dar o próximo passo?</h2>
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
             Se você enfrenta uma questão jurídica e precisa de orientação especializada, estamos aqui para ajudar. Agende uma consulta para discutirmos seu caso.
           </p>

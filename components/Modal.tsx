@@ -35,7 +35,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
             style={{ cursor: 'default' }}
           >
             <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center sticky top-0 bg-brand-light-gray dark:bg-brand-dark z-10">
-              {title && <h2 className="text-xl md:text-2xl font-serif text-brand-gold">{title}</h2>}
+              {title && <h2 className="text-xl md:text-2xl font-serif text-gold-gradient">{title}</h2>}
               <button
                 onClick={onClose}
                 className="text-gray-500 dark:text-gray-400 hover:text-brand-gold transition-colors p-1 rounded-full absolute top-4 right-4"

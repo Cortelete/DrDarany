@@ -5,7 +5,7 @@ export interface PracticeArea {
   name: string;
   description: string;
   examples: string;
-  icon: React.ReactNode;
+  icon: React.FC<{ className?: string }>;
   modalContent: React.ReactNode;
   simpleExamples: string[];
 }

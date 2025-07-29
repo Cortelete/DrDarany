@@ -49,25 +49,28 @@ const ContactPage: React.FC = () => {
 
   const contactActions = [
     { 
-      icon: <WhatsAppIcon className="w-7 h-7 text-green-500"/>, 
+      icon: WhatsAppIcon, 
+      iconColor: 'text-green-500',
       text: "Enviar WhatsApp", 
       subtext: "Atendimento rápido",
       href: `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=Olá! Vi seu site e gostaria de um contato.`,
-      bg: "bg-green-500/5 hover:bg-green-500/10 dark:bg-green-500/10 dark:hover:bg-green-500/20",
+      bg: "bg-green-500/5 dark:bg-green-500/10",
     },
     { 
-      icon: <PhoneIcon className="w-7 h-7 text-blue-500"/>, 
+      icon: PhoneIcon, 
+      iconColor: 'text-blue-500',
       text: "Ligar Agora", 
       subtext: "(41) 98501-1382",
       href: "tel:+5541985011382",
-      bg: "bg-blue-500/5 hover:bg-blue-500/10 dark:bg-blue-500/10 dark:hover:bg-blue-500/20",
+      bg: "bg-blue-500/5 dark:bg-blue-500/10",
     },
     { 
-      icon: <MailIcon className="w-7 h-7 text-red-500"/>, 
+      icon: MailIcon, 
+      iconColor: 'text-red-500',
       text: "Enviar E-mail",
       subtext: "dr.darany@gmail.com",
       href: "mailto:dr.darany@gmail.com",
-      bg: "bg-red-500/5 hover:bg-red-500/10 dark:bg-red-500/10 dark:hover:bg-red-500/20",
+      bg: "bg-red-500/5 dark:bg-red-500/10",
     },
   ];
   const inputStyles = "w-full px-4 py-3 bg-brand-light dark:bg-brand-dark text-brand-text-dark dark:text-brand-text-light border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-colors";
@@ -86,7 +89,7 @@ const ContactPage: React.FC = () => {
       <div className="py-16 md:py-24 bg-transparent">
         <div className="container mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-serif text-brand-gold uppercase tracking-wider">Fale Conosco</h1>
+            <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient">Fale Conosco</h1>
             <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Escolha o seu canal de preferência para entrar em contato ou, se preferir, envie-nos uma mensagem pelo formulário.
             </p>
@@ -94,21 +97,24 @@ const ContactPage: React.FC = () => {
           
           <AnimatedSection className="mb-16">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {contactActions.map(action => (
-                    <a 
-                        key={action.text}
-                        href={action.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`group block p-6 rounded-xl text-center transition-all duration-300 transform hover:-translate-y-1 ${action.bg} border border-black/5 dark:border-white/5`}
-                    >
-                        <div className="inline-block mb-4">
-                            {action.icon}
-                        </div>
-                        <h3 className="font-bold text-lg text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide">{action.text}</h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{action.subtext}</p>
-                    </a>
-                ))}
+                {contactActions.map(action => {
+                    const IconComponent = action.icon;
+                    return (
+                        <a 
+                            key={action.text}
+                            href={action.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`group block p-6 rounded-xl text-center ${action.bg} border border-black/5 dark:border-white/5 animated-border-card rgb-border reflection-hover`}
+                        >
+                            <div className="inline-block mb-4">
+                                <IconComponent className={`w-7 h-7 ${action.iconColor} transition-colors duration-300 group-hover:text-brand-text-dark`} />
+                            </div>
+                            <h3 className="font-bold text-lg text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">{action.text}</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 group-hover:text-brand-text-dark">{action.subtext}</p>
+                        </a>
+                    );
+                })}
             </div>
           </AnimatedSection>
 

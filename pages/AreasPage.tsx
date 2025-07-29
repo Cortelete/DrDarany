@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { PRACTICE_AREAS, WHATSAPP_NUMBER } from '../constants';
 import AnimatedSection from '../components/AnimatedSection';
@@ -75,33 +76,34 @@ const AreasPage: React.FC = () => {
       <div className="bg-transparent py-16 md:py-24">
         <div className="container mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-serif text-brand-gold uppercase tracking-wider">Áreas de Atuação</h1>
+            <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient">Áreas de Atuação</h1>
             <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Oferecemos assessoria jurídica especializada em diversas áreas do direito. Clique em uma área para ver os detalhes e iniciar o contato.
             </p>
           </AnimatedSection>
 
           <div className="space-y-8">
-            {PRACTICE_AREAS.map((area, index) => (
-              <AnimatedSection key={area.id} delay={index * 0.1}>
-                <button onClick={() => handleOpenDetails(area)} className="w-full text-left group bg-brand-light-gray dark:bg-brand-gray rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:shadow-gold-glow hover:border-brand-gold/30 border border-transparent">
-                  <div className="bg-brand-light dark:bg-brand-dark p-8 flex items-center justify-center md:w-1/4">
-                    <div className="transition-transform duration-300 group-hover:scale-110">
-                      {area.icon}
+            {PRACTICE_AREAS.map((area, index) => {
+              const IconComponent = area.icon;
+              return (
+                <AnimatedSection key={area.id} delay={index * 0.1}>
+                  <button onClick={() => handleOpenDetails(area)} className="w-full text-left group bg-brand-light-gray dark:bg-brand-gray rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row animated-border-card gold-border reflection-hover">
+                    <div className="bg-brand-light dark:bg-brand-dark p-8 flex items-center justify-center md:w-1/4">
+                       <IconComponent className="w-12 h-12 text-brand-gold transition-all duration-300 group-hover:text-brand-text-dark group-hover:scale-110" />
                     </div>
-                  </div>
-                  <div className="p-8 flex-1">
-                    <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-3 uppercase tracking-wide">{area.name}</h2>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{area.description}</p>
-                    <span
-                      className="inline-block font-bold text-brand-gold transition-all uppercase tracking-wide text-sm"
-                    >
-                      Ver Detalhes e Iniciar Contato &rarr;
-                    </span>
-                  </div>
-                </button>
-              </AnimatedSection>
-            ))}
+                    <div className="p-8 flex-1">
+                      <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-3 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">{area.name}</h2>
+                      <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed transition-colors duration-300 group-hover:text-brand-text-dark">{area.description}</p>
+                      <span
+                        className="inline-block font-bold text-brand-gold transition-all uppercase tracking-wide text-sm group-hover:text-brand-text-dark"
+                      >
+                        Ver Detalhes e Iniciar Contato &rarr;
+                      </span>
+                    </div>
+                  </button>
+                </AnimatedSection>
+              )
+            })}
           </div>
         </div>
       </div>
