@@ -1,5 +1,6 @@
 
 
+
 import React, { useState, useMemo } from 'react';
 import { ARTICLES } from '../constants';
 import type { Article } from '../types';
@@ -35,7 +36,7 @@ const BlogPage: React.FC = () => {
         <Modal isOpen={isOpen} onClose={close} title={selectedArticle.title.toUpperCase()}>
           <div className="space-y-4">
             <img src={selectedArticle.imageUrl} alt={selectedArticle.title} className="w-full h-auto max-h-72 object-cover rounded-lg mb-4" />
-            <p className="text-sm font-semibold text-brand-gold uppercase tracking-wider">{selectedArticle.category}</p>
+            <p className="text-sm font-semibold text-brand-gold uppercase tracking-wider text-shadow-heading">{selectedArticle.category}</p>
             <div className="text-gray-700 dark:text-gray-300 whitespace-pre-line leading-relaxed">
                 {selectedArticle.fullContent}
             </div>
@@ -52,8 +53,8 @@ const BlogPage: React.FC = () => {
         <div className="py-16 md:py-24">
             <div className="container mx-auto px-6">
                 <AnimatedSection className="text-center mb-12">
-                    <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient">Nossos Artigos</h1>
-                    <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Nossos Artigos</h1>
+                    <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-shadow-heading">
                     Conteúdo aprofundado para você entender melhor seus direitos e o universo jurídico.
                     </p>
                 </AnimatedSection>
@@ -80,8 +81,8 @@ const BlogPage: React.FC = () => {
                             <img src={article.imageUrl} alt={article.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
-                            <p className="text-sm font-semibold text-brand-gold mb-2 uppercase tracking-wider transition-colors duration-300 group-hover:text-brand-text-dark">{article.category}</p>
-                            <h3 className="text-lg md:text-xl font-serif font-bold text-brand-text-dark dark:text-brand-text-light mb-3 flex-grow uppercase transition-colors duration-300 group-hover:text-brand-text-dark">{article.title}</h3>
+                            <p className="text-sm font-semibold text-brand-gold mb-2 uppercase tracking-wider transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{article.category}</p>
+                            <h3 className="text-lg md:text-xl font-serif font-bold text-brand-text-dark dark:text-brand-text-light mb-3 flex-grow uppercase transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{article.title}</h3>
                             <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 transition-colors duration-300 group-hover:text-brand-text-dark">{article.summary}</p>
                             <div className="mt-auto">
                                 <span className="font-bold text-brand-gold group-hover:underline uppercase text-sm tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">

@@ -100,8 +100,8 @@ const RealTimeNews: React.FC = () => {
     <AnimatedSection className="bg-brand-light-gray dark:bg-brand-gray py-16 md:py-20">
         <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient">Notícias Jurídicas</h2>
-                <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300">As últimas atualizações do mundo do direito, em tempo real.</p>
+                <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Notícias Jurídicas</h2>
+                <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300 text-shadow-heading">As últimas atualizações do mundo do direito, em tempo real.</p>
             </div>
             
             <div className="max-w-4xl mx-auto bg-brand-light dark:bg-brand-dark p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
@@ -112,7 +112,7 @@ const RealTimeNews: React.FC = () => {
                         <div className="space-y-8">
                             {news.map((item, index) => (
                                 <div key={index} className="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0">
-                                    <h3 className="text-lg md:text-xl font-bold text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide">{item.title}</h3>
+                                    <h3 className="text-lg md:text-xl font-bold text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide text-shadow-heading">{item.title}</h3>
                                     <p className="text-gray-600 dark:text-gray-400">{item.summary}</p>
                                 </div>
                             ))}
@@ -120,7 +120,7 @@ const RealTimeNews: React.FC = () => {
 
                         {sources.length > 0 && (
                             <div className="mt-10 pt-6 border-t border-gray-300 dark:border-gray-700">
-                                <h4 className="font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide mb-4">Fontes</h4>
+                                <h4 className="font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide mb-4 text-shadow-heading">Fontes</h4>
                                 <ul className="space-y-2">
                                     {sources.map((source, index) => (
                                         <li key={index} className="flex items-start">

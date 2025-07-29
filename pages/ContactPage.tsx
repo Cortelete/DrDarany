@@ -80,7 +80,7 @@ const ContactPage: React.FC = () => {
       <Modal isOpen={isOpen} onClose={close} title="MENSAGEM ENVIADA!">
         <div className="text-center space-y-4">
             <p className="text-gray-700 dark:text-gray-300">Agradecemos seu contato. Retornaremos o mais breve possível.</p>
-             <button onClick={close} className="bg-brand-gold text-brand-dark font-bold py-2 px-6 rounded-md hover:bg-opacity-90 transition-all uppercase tracking-wide">
+             <button onClick={close} className="btn-primary">
                 Fechar
             </button>
         </div>
@@ -89,8 +89,8 @@ const ContactPage: React.FC = () => {
       <div className="py-16 md:py-24 bg-transparent">
         <div className="container mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient">Fale Conosco</h1>
-            <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Fale Conosco</h1>
+            <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-shadow-heading">
               Escolha o seu canal de preferência para entrar em contato ou, se preferir, envie-nos uma mensagem pelo formulário.
             </p>
           </AnimatedSection>
@@ -110,7 +110,7 @@ const ContactPage: React.FC = () => {
                             <div className="inline-block mb-4">
                                 <IconComponent className={`w-7 h-7 ${action.iconColor} transition-colors duration-300 group-hover:text-brand-text-dark`} />
                             </div>
-                            <h3 className="font-bold text-lg text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">{action.text}</h3>
+                            <h3 className="font-bold text-lg text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{action.text}</h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 group-hover:text-brand-text-dark">{action.subtext}</p>
                         </a>
                     );
@@ -120,7 +120,7 @@ const ContactPage: React.FC = () => {
 
           <AnimatedSection>
             <div className="bg-brand-light-gray dark:bg-brand-gray p-8 sm:p-10 rounded-xl shadow-2xl max-w-4xl mx-auto border border-gray-200 dark:border-gray-700">
-              <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-6 text-center uppercase tracking-wide">Ou Envie uma Mensagem Direta</h2>
+              <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-6 text-center uppercase tracking-wide text-shadow-heading">Ou Envie uma Mensagem Direta</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <input type="text" name="name" placeholder="Seu Nome" value={formData.name} onChange={handleChange} required className={inputStyles}/>
@@ -129,7 +129,7 @@ const ContactPage: React.FC = () => {
                   <input type="text" name="subject" placeholder="Assunto" value={formData.subject} onChange={handleChange} required className={inputStyles}/>
                   <textarea name="message" placeholder="Sua Mensagem" rows={5} value={formData.message} onChange={handleChange} required className={inputStyles}></textarea>
                   <div className="text-center">
-                    <button type="submit" disabled={status === 'submitting'} className="w-full sm:w-auto bg-brand-gold text-brand-dark font-bold py-3 px-12 rounded-md shadow-md hover:bg-opacity-90 transition-all disabled:bg-gray-400 hover:shadow-gold-glow uppercase tracking-wider">
+                    <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full sm:w-auto">
                       {status === 'submitting' ? 'Enviando...' : 'Enviar Mensagem'}
                     </button>
                   </div>

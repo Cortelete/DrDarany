@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 className="h-12 w-12 object-contain dark:mix-blend-screen"
               />
               <div>
-                <h3 className="text-xl font-serif text-brand-gold">Darany Luiz Alves de Oliveira</h3>
+                <h3 className="text-xl font-serif text-brand-gold text-shadow-heading">Darany Luiz Alves de Oliveira</h3>
                 <p className="text-gray-500 dark:text-gray-400">OAB/PR 130.714</p>
               </div>
             </div>
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
           <div className="text-center md:text-left">
-            <h4 className="font-bold text-lg mb-4 text-brand-text-dark dark:text-brand-text-light">Navegação</h4>
+            <h4 className="font-bold text-lg mb-4 text-brand-text-dark dark:text-brand-text-light text-shadow-heading">Navegação</h4>
             <ul className="space-y-3 text-gray-600 dark:text-gray-300">
               <li><Link to="/" className="hover:text-brand-gold transition-colors">Início</Link></li>
               <li><Link to="/sobre" className="hover:text-brand-gold transition-colors">Sobre</Link></li>
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           <div className="text-center md:text-left">
-            <h4 className="font-bold text-lg mb-4 text-brand-text-dark dark:text-brand-text-light">Contato</h4>
+            <h4 className="font-bold text-lg mb-4 text-brand-text-dark dark:text-brand-text-light text-shadow-heading">Contato</h4>
             <address className="not-italic space-y-3 text-gray-600 dark:text-gray-300">
               <p>Atendimento em Curitiba/PR</p>
               <p>Online para todo o Brasil</p>

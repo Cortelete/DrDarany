@@ -44,8 +44,8 @@ const SchedulePage: React.FC = () => {
     <div className="bg-transparent py-16 md:py-24">
       <div className="container mx-auto px-6">
         <AnimatedSection className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient">Agende sua Consulta</h1>
-          <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Agende sua Consulta</h1>
+          <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-shadow-heading">
             A forma mais rápida de agendar é via WhatsApp. Preencha os dados abaixo e envie-nos uma mensagem direta.
           </p>
         </AnimatedSection>
@@ -79,7 +79,7 @@ const SchedulePage: React.FC = () => {
                 <textarea id="description" name="description" value={formData.description} onChange={handleChange} rows={4} required className={inputStyles} placeholder="Descreva sua situação resumidamente."></textarea>
               </div>
               <div className="text-center pt-4">
-                <button type="submit" disabled={status === 'submitting'} className="w-full bg-brand-gold text-brand-dark font-bold py-3 px-8 rounded-md shadow-lg hover:bg-opacity-90 transition-all disabled:bg-gray-500 hover:shadow-gold-glow flex items-center justify-center space-x-3 uppercase tracking-wider">
+                <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full flex items-center justify-center space-x-3">
                   <WhatsAppIcon className="w-6 h-6" />
                   <span>{status === 'submitting' ? 'Aguarde...' : 'Agendar via WhatsApp'}</span>
                 </button>

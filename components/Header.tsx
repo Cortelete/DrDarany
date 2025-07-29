@@ -52,7 +52,7 @@ const Header: React.FC = () => {
         <NavLink
             to="/agendamento"
             onClick={onClick}
-            className="ml-0 lg:ml-4 mt-4 lg:mt-0 bg-brand-gold text-brand-dark font-bold px-5 py-2 rounded-md shadow-md hover:bg-opacity-90 transition-all transform hover:scale-105 uppercase text-sm tracking-wide"
+            className="btn-primary ml-0 lg:ml-4 mt-4 lg:mt-0"
         >
             Agendar Consulta
         </NavLink>

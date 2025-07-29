@@ -41,7 +41,7 @@ const AreasPage: React.FC = () => {
                   {selectedArea.modalContent}
               </div>
               <div className="pt-4 border-t border-gray-200 dark:border-gray-700 mt-4">
-                  <h4 className="font-bold text-lg text-gray-800 dark:text-gray-200 uppercase tracking-wide">Está passando por alguma dessas situações?</h4>
+                  <h4 className="font-bold text-lg text-gray-800 dark:text-gray-200 uppercase tracking-wide text-shadow-heading">Está passando por alguma dessas situações?</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Clique em uma situação abaixo para iniciar uma conversa sobre seu caso.</p>
               </div>
               <div className="space-y-3 pt-2">
@@ -63,10 +63,10 @@ const AreasPage: React.FC = () => {
           <div className="text-center space-y-4">
               <p className="text-gray-700 dark:text-gray-300">Você será redirecionado para o WhatsApp para conversar sobre seu caso. Deseja continuar?</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                  <button onClick={closeConfirmModal} className="bg-gray-300 text-brand-text-dark font-bold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all w-full sm:w-auto uppercase tracking-wide">
+                  <button onClick={closeConfirmModal} className="btn-secondary w-full sm:w-auto">
                       Cancelar
                   </button>
-                  <button onClick={handleWhatsAppRedirect} className="bg-brand-gold text-brand-dark font-bold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all w-full sm:w-auto uppercase tracking-wide">
+                  <button onClick={handleWhatsAppRedirect} className="btn-primary w-full sm:w-auto">
                       Sim, Falar no WhatsApp
                   </button>
               </div>
@@ -76,8 +76,8 @@ const AreasPage: React.FC = () => {
       <div className="bg-transparent py-16 md:py-24">
         <div className="container mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient">Áreas de Atuação</h1>
-            <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Áreas de Atuação</h1>
+            <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-shadow-heading">
               Oferecemos assessoria jurídica especializada em diversas áreas do direito. Clique em uma área para ver os detalhes e iniciar o contato.
             </p>
           </AnimatedSection>
@@ -92,7 +92,7 @@ const AreasPage: React.FC = () => {
                        <IconComponent className="w-12 h-12 text-brand-gold transition-all duration-300 group-hover:text-brand-text-dark group-hover:scale-110" />
                     </div>
                     <div className="p-8 flex-1">
-                      <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-3 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">{area.name}</h2>
+                      <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-3 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{area.name}</h2>
                       <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed transition-colors duration-300 group-hover:text-brand-text-dark">{area.description}</p>
                       <span
                         className="inline-block font-bold text-brand-gold transition-all uppercase tracking-wide text-sm group-hover:text-brand-text-dark"

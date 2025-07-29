@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
                     {selectedArea.modalContent}
                 </div>
                 <div className="pt-4 border-t border-gray-200 dark:border-gray-700 mt-4">
-                    <h4 className="font-bold text-gray-800 dark:text-gray-200 uppercase tracking-wide">Exemplos de Atuação:</h4>
+                    <h4 className="font-bold text-gray-800 dark:text-gray-200 uppercase tracking-wide text-shadow-heading">Exemplos de Atuação:</h4>
                     <p className="italic text-gray-600 dark:text-gray-400 mt-1">{selectedArea.examples}</p>
                 </div>
                 <div className='pt-4 text-right'>
@@ -48,10 +48,7 @@ const HomePage: React.FC = () => {
                     >
                         Ver todos os detalhes
                     </Link>
-                    <Link
-                    to="/agendamento"
-                    className="inline-block bg-brand-gold text-brand-dark font-bold py-2 px-6 rounded-md shadow-md hover:bg-opacity-90 transition-all transform hover:scale-105 uppercase text-sm tracking-wide"
-                    >
+                    <Link to="/agendamento" className="btn-primary">
                         Agendar Consulta
                     </Link>
                 </div>
@@ -90,7 +87,7 @@ const HomePage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-text-dark dark:text-brand-text-light mb-4 leading-tight uppercase"
+              className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-text-dark dark:text-brand-text-light mb-4 leading-tight uppercase text-shadow-heading"
             >
               ADVOCACIA ESPECIALISTA EM
               <span className="block text-gold-gradient mt-2">DIREITO MILITAR</span>
@@ -110,7 +107,7 @@ const HomePage: React.FC = () => {
             >
               <Link
                 to="/agendamento"
-                className="mt-10 inline-block bg-brand-gold text-brand-dark font-bold py-3 px-10 rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-gold-glow uppercase tracking-wider"
+                className="btn-primary mt-10"
               >
                 Agendar Consulta
               </Link>
@@ -129,8 +126,8 @@ const HomePage: React.FC = () => {
         {/* Target Clients Section */}
         <AnimatedSection className="container mx-auto px-6">
           <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient">Para Quem Atuamos</h2>
-              <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300">Representação dedicada aos agentes da segurança pública e forças armadas.</p>
+              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Para Quem Atuamos</h2>
+              <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300 text-shadow-heading">Representação dedicada aos agentes da segurança pública e forças armadas.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 max-w-4xl mx-auto">
               {targetClients.map((client, index) => (
@@ -139,7 +136,7 @@ const HomePage: React.FC = () => {
                         <div className="flex items-center justify-center h-24 w-24 mx-auto mb-4 rounded-full bg-brand-light dark:bg-brand-dark p-2 overflow-hidden">
                             <img src={client.logoSrc} alt={`Logo ${client.name}`} className="h-full w-full object-contain" />
                         </div>
-                        <h3 className="font-semibold text-sm md:text-base text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide">{client.name}</h3>
+                        <h3 className="font-semibold text-sm md:text-base text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide text-shadow-heading">{client.name}</h3>
                     </button>
                     <AnimatePresence>
                     {openClient === index && (
@@ -164,8 +161,8 @@ const HomePage: React.FC = () => {
         {/* Practice Areas Section */}
         <AnimatedSection className="container mx-auto px-6">
           <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient">Nossas Especialidades</h2>
-              <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300">Soluções jurídicas para proteger seus direitos e sua carreira.</p>
+              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Nossas Especialidades</h2>
+              <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300 text-shadow-heading">Soluções jurídicas para proteger seus direitos e sua carreira.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {PRACTICE_AREAS.map((area) => {
@@ -176,7 +173,7 @@ const HomePage: React.FC = () => {
                         <div className="mb-5">
                           <IconComponent className="w-12 h-12 text-brand-gold transition-colors duration-300 group-hover:text-brand-text-dark" />
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">{area.name}</h3>
+                        <h3 className="text-lg md:text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{area.name}</h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow transition-colors duration-300 group-hover:text-brand-text-dark">{area.description}</p>
                         <span className="text-brand-gold font-semibold text-sm mt-auto pt-2 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">Saiba Mais &rarr;</span>
                       </div>
@@ -188,13 +185,13 @@ const HomePage: React.FC = () => {
 
         {/* CTA Section */}
         <AnimatedSection className="container mx-auto px-6 text-center py-16">
-          <h2 className="text-2xl md:text-3xl font-serif mb-4 uppercase tracking-wider text-gold-gradient">Pronto para dar o próximo passo?</h2>
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          <h2 className="text-2xl md:text-3xl font-serif mb-4 uppercase tracking-wider text-gold-gradient text-shadow-heading">Pronto para dar o próximo passo?</h2>
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8 text-shadow-heading">
             Se você enfrenta uma questão jurídica e precisa de orientação especializada, estamos aqui para ajudar. Agende uma consulta para discutirmos seu caso.
           </p>
           <Link
             to="/agendamento"
-            className="inline-block bg-brand-gold text-brand-dark font-bold py-4 px-12 rounded-md shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105 hover:shadow-gold-glow uppercase tracking-wider"
+            className="btn-primary"
           >
             Agendar Consulta
           </Link>
