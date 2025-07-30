@@ -31,6 +31,19 @@ const HomePage: React.FC = () => {
   
   return (
     <>
+      <motion.div
+        initial={{ opacity: 0, scale: 1.2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: 'easeOut' }}
+        className="fixed inset-0 z-0 flex items-center justify-center pointer-events-none"
+      >
+        <img
+            src="/images/logoDrD.png"
+            alt=""
+            className="w-full h-full object-contain opacity-10 dark:opacity-[0.05] mix-blend-luminosity"
+        />
+      </motion.div>
+
       {selectedArea && (
         <Modal isOpen={isOpen} onClose={close} title={selectedArea.name.toUpperCase()}>
             <div className="space-y-4">
@@ -55,21 +68,9 @@ const HomePage: React.FC = () => {
             </div>
         </Modal>
       )}
-      <div className="space-y-24 md:space-y-32">
+      <div className="relative z-1 space-y-24 md:space-y-32">
         {/* Hero Section */}
-        <section className="relative text-center text-brand-text-dark dark:text-brand-text-light bg-light-gradient dark:bg-dark-gradient overflow-hidden -mt-20">
-           <motion.div
-            initial={{ opacity: 0, scale: 1.2 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
-            className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
-          >
-            <img
-                src="/images/logoDrD.png"
-                alt=""
-                className="w-1/2 md:w-1/3 h-auto opacity-5 dark:opacity-[0.02] mix-blend-luminosity"
-            />
-          </motion.div>
+        <section className="relative text-center text-brand-text-dark dark:text-brand-text-light -mt-20">
           <div className="relative z-10 container mx-auto px-6 flex flex-col items-center justify-center min-h-screen">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
