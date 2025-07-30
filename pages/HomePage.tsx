@@ -142,7 +142,7 @@ const HomePage: React.FC = () => {
                             alt={`Logo ${client.name}`} 
                             className="h-28 w-28 mx-auto mb-4 object-contain transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)]" 
                         />
-                        <h3 className="font-semibold text-sm md:text-base text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide text-shadow-heading">{client.name}</h3>
+                        <h3 className="font-semibold text-sm md:text-base text-brand-gold uppercase tracking-wide text-shadow-heading">{client.name}</h3>
                     </button>
                     <AnimatePresence>
                     {openClient === index && (
