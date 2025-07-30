@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PRACTICE_AREAS } from '../constants';
+import { PRACTICE_AREAS, WHATSAPP_NUMBER, WhatsAppIcon } from '../constants';
 import AnimatedSection from '../components/AnimatedSection';
 import Modal from '../components/Modal';
 import { useModal } from '../hooks/useModal';
@@ -17,11 +17,67 @@ const HomePage: React.FC = () => {
   const { isOpen, open, close } = useModal();
   const [selectedArea, setSelectedArea] = useState<PracticeArea | null>(null);
 
+  // State for the new schedule modal
+  const { isOpen: isScheduleOpen, open: openSchedule, close: closeSchedule } = useModal();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    area: '',
+    description: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting'>('idle');
+
   const handleOpenModal = (area: PracticeArea) => {
     setSelectedArea(area);
     open();
   };
+
+  // Handler to open schedule modal and pre-fill data
+  const handleOpenScheduleModal = () => {
+    if (selectedArea) {
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        area: selectedArea.name,
+        description: `Olá, gostaria de agendar uma consulta sobre ${selectedArea.name}.`
+      });
+      close(); // Close details modal
+      openSchedule(); // Open schedule modal
+    }
+  };
   
+  // Form handlers copied from SchedulePage
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if(status === 'submitting') return;
+    setStatus('submitting');
+    
+    let message = `*SOLICITAÇÃO DE AGENDAMENTO VIA SITE*\n\n`;
+    message += `*NOME:* ${formData.name}\n`;
+    message += `*TELEFONE:* ${formData.phone}\n`;
+    if (formData.email) message += `*E-MAIL:* ${formData.email}\n`;
+    message += `*ÁREA DE INTERESSE:* ${formData.area}\n\n`;
+    message += `*DESCRIÇÃO DO CASO:*\n${formData.description}`;
+    
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappUrl, '_blank');
+    
+    setTimeout(() => {
+        setStatus('idle');
+        closeSchedule();
+    }, 1000);
+  };
+  
+  const inputStyles = "w-full px-4 py-3 bg-brand-light dark:bg-brand-dark text-brand-text-dark dark:text-brand-text-light border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-colors";
+
   const targetClients = [
     { name: 'Polícia Militar do Paraná', logoSrc: '/images/PMPR.png', singular: 'policial militar do Paraná' },
     { name: 'Polícia Civil do Paraná', logoSrc: '/images/PCPR.png', singular: 'policial civil do Paraná' },
@@ -44,6 +100,7 @@ const HomePage: React.FC = () => {
         />
       </motion.div>
 
+      {/* Details Modal */}
       {selectedArea && (
         <Modal isOpen={isOpen} onClose={close} title={selectedArea.name.toUpperCase()}>
             <div className="space-y-4">
@@ -54,20 +111,68 @@ const HomePage: React.FC = () => {
                     <h4 className="font-bold text-gray-800 dark:text-gray-200 uppercase tracking-wide text-shadow-heading">Exemplos de Atuação:</h4>
                     <p className="italic text-gray-600 dark:text-gray-400 mt-1">{selectedArea.examples}</p>
                 </div>
-                <div className='pt-4 text-right'>
-                    <Link 
-                        to="/atuacao" 
-                        className="font-bold text-brand-gold hover:underline transition-colors mr-6 uppercase text-sm"
-                    >
-                        Ver todos os detalhes
-                    </Link>
-                    <Link to="/agendamento" className="btn-primary">
-                        Agendar Consulta
-                    </Link>
+                <div className='pt-4 flex flex-col sm:flex-row justify-between items-center gap-4'>
+                     <div>
+                        <Link 
+                            to="/atuacao" 
+                            className="font-bold text-brand-gold hover:underline transition-colors uppercase text-sm"
+                        >
+                            Ver outras áreas
+                        </Link>
+                    </div>
+                    <div className="flex flex-col sm:flex-row justify-end gap-3 w-full sm:w-auto">
+                        <button onClick={handleOpenScheduleModal} className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2">
+                          <WhatsAppIcon className="w-5 h-5" />
+                          Agendar via WhatsApp
+                        </button>
+                    </div>
                 </div>
             </div>
         </Modal>
       )}
+
+       {/* Schedule Form Modal */}
+      <Modal isOpen={isScheduleOpen} onClose={closeSchedule} title="AGENDAR CONSULTA">
+          <div className="bg-brand-light-gray dark:bg-brand-gray p-0 sm:p-2 rounded-xl">
+            <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="modal-name" className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-2 uppercase tracking-wider">Nome Completo</label>
+                <input type="text" id="modal-name" name="name" value={formData.name} onChange={handleChange} required className={inputStyles}/>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                      <label htmlFor="modal-phone" className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-2 uppercase tracking-wider">Telefone (WhatsApp)</label>
+                      <input type="tel" id="modal-phone" name="phone" value={formData.phone} onChange={handleChange} required placeholder="(XX) XXXXX-XXXX" className={inputStyles}/>
+                  </div>
+                  <div>
+                      <label htmlFor="modal-email" className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-2 uppercase tracking-wider">E-mail (Opcional)</label>
+                      <input type="email" id="modal-email" name="email" value={formData.email} onChange={handleChange} className={inputStyles}/>
+                  </div>
+              </div>
+              <div>
+                <label htmlFor="modal-area" className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-2 uppercase tracking-wider">Área de Interesse</label>
+                <select id="modal-area" name="area" value={formData.area} onChange={handleChange} required className={inputStyles}>
+                  <option value="">Selecione uma área</option>
+                  {PRACTICE_AREAS.map(area => <option key={area.id} value={area.name}>{area.name}</option>)}
+                </select>
+              </div>
+              <div>
+                <label htmlFor="modal-description" className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-2 uppercase tracking-wider">Breve Descrição do Caso</label>
+                <textarea id="modal-description" name="description" value={formData.description} onChange={handleChange} rows={4} required className={inputStyles}></textarea>
+              </div>
+              <div className="text-center pt-4">
+                <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full flex items-center justify-center space-x-3">
+                  <WhatsAppIcon className="w-6 h-6" />
+                  <span>{status === 'submitting' ? 'Aguarde...' : 'Enviar para o WhatsApp'}</span>
+                </button>
+              </div>
+            </form>
+              <div className="text-center mt-6">
+                <p className="text-xs text-gray-600 dark:text-gray-400">Ao clicar, você será redirecionado para o WhatsApp com a mensagem pronta para envio.</p>
+            </div>
+          </div>
+      </Modal>
+
       <div className="relative z-1 space-y-24 md:space-y-32">
         {/* Hero Section */}
         <section className="relative text-center text-brand-text-dark dark:text-brand-text-light -mt-20">
