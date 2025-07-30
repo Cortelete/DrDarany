@@ -1,5 +1,6 @@
 
 
+
 import React, { useState } from 'react';
 import { PRACTICE_AREAS, WHATSAPP_NUMBER } from '../constants';
 import AnimatedSection from '../components/AnimatedSection';
@@ -49,9 +50,9 @@ const AreasPage: React.FC = () => {
                       <button 
                         key={example} 
                         onClick={() => handleOpenConfirm(example)} 
-                        className="w-full text-left p-4 bg-brand-light dark:bg-brand-gray rounded-lg hover:bg-brand-gold/10 transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-brand-gold/50"
+                        className="group w-full text-left p-4 bg-brand-light dark:bg-brand-gray rounded-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-brand-gold/50 hover:bg-brand-gold/10 hover:shadow-lg hover:-translate-y-1"
                       >
-                          <span className="font-medium text-brand-text-dark dark:text-brand-text-light">{example} &rarr;</span>
+                          <span className="font-medium text-brand-text-dark dark:text-brand-text-light transition-colors duration-300 group-hover:text-brand-gold">{example} &rarr;</span>
                       </button>
                   ))}
               </div>

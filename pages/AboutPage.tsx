@@ -53,12 +53,12 @@ const AboutPage: React.FC = () => {
 
             </div>
           </div>
-          <div className="md:col-span-2 order-1 md:order-2 flex justify-center">
-            <div className="rounded-lg shadow-xl overflow-hidden border-4 border-brand-gold/20">
+          <div className="md:col-span-2 order-1 md:order-2 flex justify-center items-center">
+            <div className="bg-brand-light-gray dark:bg-brand-gray p-8 rounded-lg shadow-xl overflow-hidden border-4 border-brand-gold/20 w-full max-w-[350px] aspect-square">
               <img 
-                src="https://picsum.photos/400/500?grayscale" 
-                alt="Dr. Darany Luiz Alves de Oliveira" 
-                className="object-cover w-full h-full"
+                src="/images/logoDrD.png" 
+                alt="Logo Darany Advocacia" 
+                className="object-contain w-full h-full dark:mix-blend-screen"
               />
             </div>
           </div>
