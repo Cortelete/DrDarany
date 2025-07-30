@@ -173,14 +173,14 @@ const HomePage: React.FC = () => {
               {PRACTICE_AREAS.map((area) => {
                 const IconComponent = area.icon;
                 return (
-                  <button key={area.id} onClick={() => handleOpenModal(area)} className="group text-left relative bg-brand-light-gray dark:bg-brand-gray p-8 rounded-xl shadow-lg animated-border-card gold-border reflection-hover">
+                  <button key={area.id} onClick={() => handleOpenModal(area)} className="group text-left relative bg-brand-light-gray dark:bg-brand-gray p-8 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 reflection-hover">
                       <div className="relative z-10 flex flex-col h-full">
                         <div className="mb-5">
-                          <IconComponent className="w-12 h-12 text-brand-gold transition-colors duration-300 group-hover:text-brand-text-dark" />
+                          <IconComponent className="w-12 h-12 text-brand-gold" />
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{area.name}</h3>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow transition-colors duration-300 group-hover:text-brand-text-dark">{area.description}</p>
-                        <span className="text-brand-gold font-semibold text-sm mt-auto pt-2 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">Saiba Mais &rarr;</span>
+                        <h3 className="text-lg md:text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide text-shadow-heading">{area.name}</h3>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">{area.description}</p>
+                        <span className="text-brand-gold font-semibold text-sm mt-auto pt-2 uppercase tracking-wide">Saiba Mais &rarr;</span>
                       </div>
                   </button>
                 )

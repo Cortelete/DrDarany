@@ -1,6 +1,5 @@
 
 
-
 import React, { useState, useMemo } from 'react';
 import { ARTICLES } from '../constants';
 import type { Article } from '../types';
@@ -75,17 +74,17 @@ const BlogPage: React.FC = () => {
                         <AnimatedSection key={article.id} delay={index * 0.1}>
                         <button
                             onClick={() => handleReadMore(article)}
-                            className="group bg-brand-light-gray dark:bg-brand-gray rounded-lg shadow-lg overflow-hidden h-full flex flex-col text-left w-full animated-border-card gold-border reflection-hover"
+                            className="group relative bg-brand-light-gray dark:bg-brand-gray rounded-lg shadow-lg overflow-hidden h-full flex flex-col text-left w-full transition-transform duration-300 hover:-translate-y-2 reflection-hover"
                         >
                             <div className="overflow-hidden">
                             <img src={article.imageUrl} alt={article.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
-                            <p className="text-sm font-semibold text-brand-gold mb-2 uppercase tracking-wider transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{article.category}</p>
-                            <h3 className="text-lg md:text-xl font-serif font-bold text-brand-text-dark dark:text-brand-text-light mb-3 flex-grow uppercase transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{article.title}</h3>
-                            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 transition-colors duration-300 group-hover:text-brand-text-dark">{article.summary}</p>
+                            <p className="text-sm font-semibold text-brand-gold mb-2 uppercase tracking-wider text-shadow-heading">{article.category}</p>
+                            <h3 className="text-lg md:text-xl font-serif font-bold text-brand-text-dark dark:text-brand-text-light mb-3 flex-grow uppercase text-shadow-heading">{article.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{article.summary}</p>
                             <div className="mt-auto">
-                                <span className="font-bold text-brand-gold group-hover:underline uppercase text-sm tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark">
+                                <span className="font-bold text-brand-gold group-hover:underline uppercase text-sm tracking-wide">
                                     Leia mais &rarr;
                                 </span>
                             </div>

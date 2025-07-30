@@ -105,13 +105,13 @@ const ContactPage: React.FC = () => {
                             href={action.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`group block p-6 rounded-xl text-center ${action.bg} border border-black/5 dark:border-white/5 animated-border-card rgb-border reflection-hover`}
+                            className={`group block relative p-6 rounded-xl text-center ${action.bg} border border-black/5 dark:border-white/5 overflow-hidden transition-transform duration-300 hover:-translate-y-2 reflection-hover`}
                         >
                             <div className="inline-block mb-4">
-                                <IconComponent className={`w-7 h-7 ${action.iconColor} transition-colors duration-300 group-hover:text-brand-text-dark`} />
+                                <IconComponent className={`w-7 h-7 ${action.iconColor}`} />
                             </div>
-                            <h3 className="font-bold text-lg text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{action.text}</h3>
-                            <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300 group-hover:text-brand-text-dark">{action.subtext}</p>
+                            <h3 className="font-bold text-lg text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide text-shadow-heading">{action.text}</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">{action.subtext}</p>
                         </a>
                     );
                 })}

@@ -87,15 +87,15 @@ const AreasPage: React.FC = () => {
               const IconComponent = area.icon;
               return (
                 <AnimatedSection key={area.id} delay={index * 0.1}>
-                  <button onClick={() => handleOpenDetails(area)} className="w-full text-left group bg-brand-light-gray dark:bg-brand-gray rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row animated-border-card gold-border reflection-hover">
+                  <button onClick={() => handleOpenDetails(area)} className="w-full text-left group relative bg-brand-light-gray dark:bg-brand-gray rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row transition-transform duration-300 hover:-translate-y-2 reflection-hover">
                     <div className="bg-brand-light dark:bg-brand-dark p-8 flex items-center justify-center md:w-1/4">
-                       <IconComponent className="w-12 h-12 text-brand-gold transition-all duration-300 group-hover:text-brand-text-dark group-hover:scale-110" />
+                       <IconComponent className="w-12 h-12 text-brand-gold transition-transform duration-300 group-hover:scale-110" />
                     </div>
                     <div className="p-8 flex-1">
-                      <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-3 uppercase tracking-wide transition-colors duration-300 group-hover:text-brand-text-dark text-shadow-heading">{area.name}</h2>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed transition-colors duration-300 group-hover:text-brand-text-dark">{area.description}</p>
+                      <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-3 uppercase tracking-wide text-shadow-heading">{area.name}</h2>
+                      <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{area.description}</p>
                       <span
-                        className="inline-block font-bold text-brand-gold transition-all uppercase tracking-wide text-sm group-hover:text-brand-text-dark"
+                        className="inline-block font-bold text-brand-gold uppercase tracking-wide text-sm"
                       >
                         Ver Detalhes e Iniciar Contato &rarr;
                       </span>
