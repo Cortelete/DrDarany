@@ -35,12 +35,12 @@ const HomePage: React.FC = () => {
         initial={{ opacity: 0, scale: 1.2 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: 'easeOut' }}
-        className="fixed inset-0 z-0 flex items-center justify-center pointer-events-none"
+        className="fixed inset-0 z-0 flex items-center justify-start pointer-events-none"
       >
         <img
             src="/images/logoDrD.png"
             alt=""
-            className="w-full h-full object-contain opacity-[0.07] dark:opacity-[0.04] mix-blend-luminosity"
+            className="w-full h-full object-contain opacity-[0.05] dark:opacity-[0.03] mix-blend-luminosity"
         />
       </motion.div>
 
@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
               <img
                 src="/images/logoDrD.png"
                 alt="Logo Darany Advocacia"
-                className="h-32 w-32 md:h-40 md:w-40 object-contain dark:mix-blend-screen"
+                className="h-36 w-36 md:h-48 md:w-48 object-contain dark:mix-blend-screen"
               />
             </motion.div>
             <motion.h1 
