@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
         <img
             src="/images/logoDrD.png"
             alt=""
-            className="w-full h-full object-contain opacity-[0.05] dark:opacity-[0.03] mix-blend-luminosity"
+            className="h-screen w-auto max-w-[80vw] object-contain opacity-[0.04] dark:opacity-[0.02] mix-blend-luminosity"
         />
       </motion.div>
 
@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
               <img
                 src="/images/logoDrD.png"
                 alt="Logo Darany Advocacia"
-                className="h-36 w-36 md:h-48 md:w-48 object-contain dark:mix-blend-screen"
+                className="h-40 w-40 md:h-52 md:w-52 object-contain dark:mix-blend-screen"
               />
             </motion.div>
             <motion.h1 
