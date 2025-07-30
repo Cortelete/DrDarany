@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
         <img
             src="/images/logoDrD.png"
             alt=""
-            className="w-full h-full object-contain opacity-10 dark:opacity-[0.05] mix-blend-luminosity"
+            className="w-full h-full object-contain opacity-[0.07] dark:opacity-[0.04] mix-blend-luminosity"
         />
       </motion.div>
 
