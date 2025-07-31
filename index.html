@@ -35,6 +35,15 @@
             backgroundImage: {
               'light-gradient': 'radial-gradient(ellipse at top, #FFFFFF, #F5F5F5)',
               'dark-gradient': 'radial-gradient(ellipse at top, #1A1A1A, #0D0D0D)',
+            },
+            animation: {
+              'nudge-right': 'nudge-right 2s ease-in-out infinite',
+            },
+            keyframes: {
+              'nudge-right': {
+                '0%, 100%': { transform: 'translateX(0)' },
+                '50%': { transform: 'translateX(5px)' },
+              }
             }
           },
         },

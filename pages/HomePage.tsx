@@ -195,8 +195,8 @@ const HomePage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-text-dark dark:text-brand-text-light mb-4 leading-tight uppercase text-shadow-heading"
             >
-              ADVOCACIA ESPECIALISTA EM
-              <span className="block text-gold-gradient mt-2">DIREITO MILITAR</span>
+              DEFESA, ESTRATÉGIA E RESULTADO
+              <span className="block text-gold-gradient mt-2">PARA SUA CAUSA JURÍDICA</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -204,7 +204,7 @@ const HomePage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-base md:text-lg font-light text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
             >
-              Defesa e orientação para Policiais, Guardas Municipais e membros das Forças Armadas.
+              Advocacia com soluções para diversas áreas do direito e atuação de referência em Direito Militar.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

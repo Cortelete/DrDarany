@@ -79,8 +79,18 @@ const Header: React.FC = () => {
             >
               {theme === 'light' ? <MoonIcon className="w-5 h-5"/> : <SunIcon className="w-5 h-5"/>}
             </button>
+
+            {!isMenuOpen && (
+              <div className="lg:hidden flex items-center pointer-events-none animate-nudge-right mr-2">
+                <span className="text-xs uppercase font-semibold tracking-wider text-gold-gradient whitespace-nowrap">SAIBA MAIS AQUI</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 ml-1 text-brand-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+              </div>
+            )}
+
             <button
-                className="lg:hidden p-2 ml-2"
+                className="lg:hidden p-2"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Toggle menu"
             >
