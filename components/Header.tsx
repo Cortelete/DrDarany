@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 
-const MenuIcon: React.FC<{className?: string}> = ({className}) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-);
-
 const XIcon: React.FC<{className?: string}> = ({className}) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
 );
@@ -88,7 +84,13 @@ const Header: React.FC = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Toggle menu"
             >
-                {isMenuOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+                {isMenuOpen ? (
+                    <XIcon className="h-6 w-6" />
+                 ) : (
+                    <span className="relative inline-block overflow-hidden reflection-hover font-semibold uppercase text-brand-gold text-gold-glow-hover tracking-wider text-sm px-2 py-1">
+                        Menu
+                    </span>
+                 )}
             </button>
         </div>
       </div>

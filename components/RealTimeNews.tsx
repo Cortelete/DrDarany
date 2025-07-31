@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import AnimatedSection from './AnimatedSection';
