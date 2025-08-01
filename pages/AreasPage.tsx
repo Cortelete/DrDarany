@@ -1,6 +1,7 @@
 
 
 
+
 import React, { useState } from 'react';
 import { PRACTICE_AREAS, WHATSAPP_NUMBER } from '../constants';
 import AnimatedSection from '../components/AnimatedSection';
@@ -50,7 +51,7 @@ const AreasPage: React.FC = () => {
                       <button 
                         key={example} 
                         onClick={() => handleOpenConfirm(example)} 
-                        className="group w-full text-left p-4 bg-brand-light dark:bg-brand-gray rounded-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-brand-gold/50 hover:bg-brand-gold/10 hover:shadow-lg hover:-translate-y-1"
+                        className="group w-full text-left p-4 bg-brand-light-bg dark:bg-brand-gray rounded-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-brand-gold/50 hover:bg-brand-gold/10 hover:shadow-lg hover:-translate-y-1"
                       >
                           <span className="font-medium text-brand-text-dark dark:text-brand-text-light transition-colors duration-300 group-hover:text-brand-gold">{example} &rarr;</span>
                       </button>
@@ -88,8 +89,8 @@ const AreasPage: React.FC = () => {
               const IconComponent = area.icon;
               return (
                 <AnimatedSection key={area.id} delay={index * 0.1}>
-                  <button onClick={() => handleOpenDetails(area)} className="w-full text-left group relative bg-brand-light-gray dark:bg-brand-gray rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row transition-transform duration-300 hover:-translate-y-2 reflection-hover">
-                    <div className="bg-brand-light dark:bg-brand-dark p-8 flex items-center justify-center md:w-1/4">
+                  <button onClick={() => handleOpenDetails(area)} className="w-full text-left group relative bg-brand-light-surface dark:bg-brand-gray rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row transition-transform duration-300 hover:-translate-y-2 reflection-hover">
+                    <div className="bg-brand-light-bg dark:bg-brand-dark p-8 flex items-center justify-center md:w-1/4">
                        <IconComponent className="w-12 h-12 text-brand-gold transition-transform duration-300 group-hover:scale-110" />
                     </div>
                     <div className="p-8 flex-1">

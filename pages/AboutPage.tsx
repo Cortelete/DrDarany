@@ -61,7 +61,7 @@ const AboutPage: React.FC = () => {
                 
                 <div className="group rounded-lg transition-colors duration-300 hover:bg-brand-gold/5 dark:hover:bg-brand-gold/10">
                     <div className="flex items-start space-x-6 p-4">
-                        <div className="flex-shrink-0 bg-brand-light dark:bg-brand-gray p-4 rounded-full border border-brand-gold/10">
+                        <div className="flex-shrink-0 bg-brand-light-bg dark:bg-brand-gray p-4 rounded-full border border-brand-gold/10">
                             <MedalIcon className="w-8 h-8 text-brand-gold" />
                         </div>
                         <div>
@@ -80,7 +80,7 @@ const AboutPage: React.FC = () => {
 
                 <div className="group rounded-lg transition-colors duration-300 hover:bg-brand-gold/5 dark:hover:bg-brand-gold/10">
                     <div className="flex items-start space-x-6 p-4">
-                        <div className="flex-shrink-0 bg-brand-light dark:bg-brand-gray p-4 rounded-full border border-brand-gold/10">
+                        <div className="flex-shrink-0 bg-brand-light-bg dark:bg-brand-gray p-4 rounded-full border border-brand-gold/10">
                         <ScalesOfJusticeIcon className="w-8 h-8 text-brand-gold" />
                         </div>
                         <div>
@@ -100,7 +100,7 @@ const AboutPage: React.FC = () => {
               </div>
             </div>
             <div className="md:col-span-2 order-1 md:order-2 flex justify-center items-center">
-              <div className="bg-brand-light-gray dark:bg-brand-gray p-8 rounded-lg shadow-xl overflow-hidden border-4 border-brand-gold/20 w-full max-w-[350px] aspect-square">
+              <div className="bg-brand-light-surface dark:bg-brand-gray p-8 rounded-lg shadow-xl overflow-hidden border-4 border-brand-gold/20 w-full max-w-[350px] aspect-square">
                 <img 
                   src="/images/logoDrD.png" 
                   alt="Logo Darany Advocacia" 
@@ -116,7 +116,7 @@ const AboutPage: React.FC = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   {values.map((item, index) => (
-                  <div key={index} className="relative overflow-hidden bg-brand-light-gray dark:bg-brand-gray p-8 rounded-lg shadow-md border-b-4 border-brand-gold transition-transform duration-300 hover:-translate-y-2 reflection-hover">
+                  <div key={index} className="relative overflow-hidden bg-brand-light-surface dark:bg-brand-gray p-8 rounded-lg shadow-md border-b-4 border-brand-gold transition-transform duration-300 hover:-translate-y-2 reflection-hover">
                       <h3 className="text-xl md:text-2xl font-serif text-brand-gold mb-3 uppercase tracking-wide text-shadow-heading">{item.title}</h3>
                       <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
                   </div>

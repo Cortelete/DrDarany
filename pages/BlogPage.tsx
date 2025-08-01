@@ -64,7 +64,7 @@ const BlogPage: React.FC = () => {
                     placeholder="Pesquisar em nossos artigos..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full px-5 py-3 bg-brand-light-gray dark:bg-brand-gray border border-gray-300 dark:border-gray-700 rounded-full shadow-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all"
+                    className="w-full px-5 py-3 bg-brand-light-surface dark:bg-brand-gray border border-gray-300 dark:border-gray-700 rounded-full shadow-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all"
                     />
                 </AnimatedSection>
                 
@@ -74,7 +74,7 @@ const BlogPage: React.FC = () => {
                         <AnimatedSection key={article.id} delay={index * 0.1}>
                         <button
                             onClick={() => handleReadMore(article)}
-                            className="group relative bg-brand-light-gray dark:bg-brand-gray rounded-lg shadow-lg overflow-hidden h-full flex flex-col text-left w-full transition-transform duration-300 hover:-translate-y-2 reflection-hover"
+                            className="group relative bg-brand-light-surface dark:bg-brand-gray rounded-lg shadow-lg overflow-hidden h-full flex flex-col text-left w-full transition-transform duration-300 hover:-translate-y-2 reflection-hover"
                         >
                             <div className="overflow-hidden">
                             <img src={article.imageUrl} alt={article.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />

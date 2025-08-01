@@ -96,14 +96,14 @@ const RealTimeNews: React.FC = () => {
   );
 
   return (
-    <AnimatedSection className="bg-brand-light-gray dark:bg-brand-gray py-16 md:py-20">
+    <AnimatedSection className="bg-brand-light-surface dark:bg-brand-gray py-16 md:py-20">
         <div className="container mx-auto px-6">
             <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Notícias Jurídicas</h2>
                 <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300 text-shadow-heading">As últimas atualizações do mundo do direito, em tempo real.</p>
             </div>
             
-            <div className="max-w-4xl mx-auto bg-brand-light dark:bg-brand-dark p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+            <div className="max-w-4xl mx-auto bg-brand-light-bg dark:bg-brand-dark p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
                 {loading && <NewsSkeleton />}
                 {error && <p className="text-center text-red-500">{error}</p>}
                 {!loading && !error && news.length > 0 && (

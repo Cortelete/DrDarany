@@ -76,7 +76,7 @@ const HomePage: React.FC = () => {
     }, 1000);
   };
   
-  const inputStyles = "w-full px-4 py-3 bg-brand-light dark:bg-brand-dark text-brand-text-dark dark:text-brand-text-light border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-colors";
+  const inputStyles = "w-full px-4 py-3 bg-brand-light-bg dark:bg-brand-dark text-brand-text-dark dark:text-brand-text-light border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-colors";
 
   const targetClients = [
     { name: 'Polícia Militar do Paraná', logoSrc: '/images/PMPR.png', singular: 'policial militar do Paraná' },
@@ -133,7 +133,7 @@ const HomePage: React.FC = () => {
 
        {/* Schedule Form Modal */}
       <Modal isOpen={isScheduleOpen} onClose={closeSchedule} title="AGENDAR CONSULTA">
-          <div className="bg-brand-light-gray dark:bg-brand-gray p-0 sm:p-2 rounded-xl">
+          <div className="bg-brand-light-surface dark:bg-brand-gray p-0 sm:p-2 rounded-xl">
             <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
               <div>
                 <label htmlFor="modal-name" className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-2 uppercase tracking-wider">Nome Completo</label>
@@ -229,10 +229,35 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
+        {/* Practice Areas Section */}
+        <AnimatedSection className="container mx-auto px-6">
+          <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Nossas Especialidades</h2>
+              <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300 text-shadow-heading">Soluções jurídicas para proteger seus direitos e sua carreira.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {PRACTICE_AREAS.map((area) => {
+                const IconComponent = area.icon;
+                return (
+                  <button key={area.id} onClick={() => handleOpenModal(area)} className="group text-left relative bg-brand-light-surface dark:bg-brand-gray p-8 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 reflection-hover">
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="mb-5">
+                          <IconComponent className="w-12 h-12 text-brand-gold" />
+                        </div>
+                        <h3 className="text-lg md:text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide text-shadow-heading">{area.name}</h3>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">{area.description}</p>
+                        <span className="text-brand-gold font-semibold text-sm mt-auto pt-2 uppercase tracking-wide">Saiba Mais &rarr;</span>
+                      </div>
+                  </button>
+                )
+              })}
+          </div>
+        </AnimatedSection>
+        
         {/* Target Clients Section */}
         <AnimatedSection className="container mx-auto px-6">
           <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Para Quem Atuamos</h2>
+              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Também atuamos para:</h2>
               <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300 text-shadow-heading">Representação dedicada aos agentes da segurança pública e forças armadas.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 max-w-4xl mx-auto">
@@ -245,7 +270,7 @@ const HomePage: React.FC = () => {
                         <img 
                             src={client.logoSrc} 
                             alt={`Logo ${client.name}`} 
-                            className="h-28 w-28 mx-auto mb-4 object-contain transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)]" 
+                            className="h-28 w-28 mx-auto mb-4 object-contain transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(174,134,37,0.6)]" 
                         />
                         <h3 className="font-semibold text-sm md:text-base text-brand-gold uppercase tracking-wide text-shadow-heading">{client.name}</h3>
                     </button>
@@ -269,30 +294,6 @@ const HomePage: React.FC = () => {
           </div>
         </AnimatedSection>
 
-        {/* Practice Areas Section */}
-        <AnimatedSection className="container mx-auto px-6">
-          <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Nossas Especialidades</h2>
-              <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300 text-shadow-heading">Soluções jurídicas para proteger seus direitos e sua carreira.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {PRACTICE_AREAS.map((area) => {
-                const IconComponent = area.icon;
-                return (
-                  <button key={area.id} onClick={() => handleOpenModal(area)} className="group text-left relative bg-brand-light-gray dark:bg-brand-gray p-8 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 reflection-hover">
-                      <div className="relative z-10 flex flex-col h-full">
-                        <div className="mb-5">
-                          <IconComponent className="w-12 h-12 text-brand-gold" />
-                        </div>
-                        <h3 className="text-lg md:text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide text-shadow-heading">{area.name}</h3>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">{area.description}</p>
-                        <span className="text-brand-gold font-semibold text-sm mt-auto pt-2 uppercase tracking-wide">Saiba Mais &rarr;</span>
-                      </div>
-                  </button>
-                )
-              })}
-          </div>
-        </AnimatedSection>
 
         {/* CTA Section */}
         <AnimatedSection className="container mx-auto px-6 text-center py-16">

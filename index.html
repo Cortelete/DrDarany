@@ -15,13 +15,17 @@
         theme: {
           extend: {
             colors: {
-              'brand-gold-dark': '#b89830',
-              'brand-gold': '#D4AF37',
-              'brand-gold-light': '#E7C359',
+              // Accessible Gold Palette
+              'brand-gold-dark': '#916C1E',
+              'brand-gold': '#AE8625',
+              'brand-gold-light': '#D4AF37',
+              // Dark Theme Palette
               'brand-dark': '#0D0D0D',
               'brand-gray': '#1A1A1A',
-              'brand-light': '#F5F5F5',
-              'brand-light-gray': '#FFFFFF',
+              // Light Theme Palette (Renamed for clarity)
+              'brand-light-bg': '#F5F5F5',       // Page background
+              'brand-light-surface': '#FFFFFF', // Component surface (cards, modals)
+              // Text Palette
               'brand-text-dark': '#1F2937',
               'brand-text-light': '#E5E7EB',
             },
@@ -30,10 +34,9 @@
               serif: ['Playfair Display', 'serif'],
             },
             boxShadow: {
-              'gold-glow': '0 0 15px rgba(212, 175, 55, 0.3), 0 0 25px rgba(212, 175, 55, 0.2)',
+              'gold-glow': '0 0 15px rgba(174, 134, 37, 0.3), 0 0 25px rgba(174, 134, 37, 0.2)',
             },
             backgroundImage: {
-              'light-gradient': 'radial-gradient(ellipse at top, #FFFFFF, #F5F5F5)',
               'dark-gradient': 'radial-gradient(ellipse at top, #1A1A1A, #0D0D0D)',
             },
             animation: {
@@ -60,30 +63,30 @@
         width: 12px;
       }
       ::-webkit-scrollbar-track {
-        background: #f5f5f5;
+        background: #F5F5F5; /* brand-light-bg */
       }
       ::-webkit-scrollbar-thumb {
-        background-color: #D4AF37; /* brand-gold */
+        background-color: #AE8625; /* brand-gold */
         border-radius: 20px;
-        border: 3px solid #f5f5f5;
+        border: 3px solid #F5F5F5; /* brand-light-bg */
       }
       ::-webkit-scrollbar-thumb:hover {
-        background-color: #b89830; /* brand-gold-dark */
+        background-color: #916C1E; /* brand-gold-dark */
       }
 
       .dark ::-webkit-scrollbar-track {
         background: #0D0D0D;
       }
       .dark ::-webkit-scrollbar-thumb {
-        background-color: #D4AF37; /* brand-gold */
+        background-color: #AE8625; /* brand-gold */
         border: 3px solid #0D0D0D;
       }
       .dark ::-webkit-scrollbar-thumb:hover {
-        background-color: #E7C359; /* brand-gold-light */
+        background-color: #D4AF37; /* brand-gold-light */
       }
 
       .text-gold-glow-hover:hover {
-        text-shadow: 0 0 8px rgba(212, 175, 55, 0.7), 0 0 12px rgba(212, 175, 55, 0.5);
+        text-shadow: 0 0 8px rgba(174, 134, 37, 0.7), 0 0 12px rgba(174, 134, 37, 0.5);
       }
 
       /* Animated Gold Gradient Text */
@@ -93,7 +96,7 @@
         100% { background-position: 0% 50%; }
       }
       .text-gold-gradient {
-        background-image: linear-gradient(135deg, #b89830, #D4AF37, #E7C359);
+        background-image: linear-gradient(135deg, #916C1E, #AE8625, #D4AF37);
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
@@ -151,14 +154,18 @@
       }
 
       .btn-primary {
-        background-image: linear-gradient(135deg, #b89830, #D4AF37, #E7C359);
-        color: #0D0D0D;
+        background-image: linear-gradient(135deg, #916C1E, #AE8625, #D4AF37);
+        color: #FFFFFF;
         box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
+      }
+      
+      .dark .btn-primary {
+        color: #0D0D0D;
       }
 
       .btn-primary:hover {
         transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1), 0 0 20px rgba(212, 175, 55, 0.3);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1), 0 0 20px rgba(174, 134, 37, 0.3);
       }
 
       .btn-primary::after {
@@ -231,7 +238,7 @@
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-light-gradient dark:bg-dark-gradient text-brand-text-dark dark:text-brand-text-light font-sans antialiased">
+  <body class="bg-brand-light-bg dark:bg-dark-gradient text-brand-text-dark dark:text-brand-text-light font-sans antialiased">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

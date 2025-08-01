@@ -73,7 +73,7 @@ const ContactPage: React.FC = () => {
       bg: "bg-red-500/5 dark:bg-red-500/10",
     },
   ];
-  const inputStyles = "w-full px-4 py-3 bg-brand-light dark:bg-brand-dark text-brand-text-dark dark:text-brand-text-light border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-colors";
+  const inputStyles = "w-full px-4 py-3 bg-brand-light-bg dark:bg-brand-dark text-brand-text-dark dark:text-brand-text-light border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-colors";
 
   return (
     <>
@@ -119,7 +119,7 @@ const ContactPage: React.FC = () => {
           </AnimatedSection>
 
           <AnimatedSection>
-            <div className="bg-brand-light-gray dark:bg-brand-gray p-8 sm:p-10 rounded-xl shadow-2xl max-w-4xl mx-auto border border-gray-200 dark:border-gray-700">
+            <div className="bg-brand-light-surface dark:bg-brand-gray p-8 sm:p-10 rounded-xl shadow-2xl max-w-4xl mx-auto border border-gray-200 dark:border-gray-700">
               <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-6 text-center uppercase tracking-wide text-shadow-heading">Ou Envie uma Mensagem Direta</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

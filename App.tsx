@@ -20,7 +20,7 @@ const App: React.FC = () => {
       <HashRouter>
         <CustomCursor />
         <ScrollToTop />
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-brand-light-bg dark:bg-brand-dark">
           <Header />
           <main className="flex-grow pt-20">
             <Routes>

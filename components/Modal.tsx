@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -31,10 +32,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
             exit={{ y: 50, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-brand-light-gray dark:bg-brand-dark rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative border border-brand-gold/20"
+            className="bg-brand-light-surface dark:bg-brand-gray rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative border border-brand-gold/20"
             style={{ cursor: 'default' }}
           >
-            <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center sticky top-0 bg-brand-light-gray dark:bg-brand-dark z-10">
+            <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center sticky top-0 bg-brand-light-surface dark:bg-brand-gray z-10">
               {title && <h2 className="text-xl md:text-2xl font-serif text-gold-gradient text-shadow-heading">{title}</h2>}
               <button
                 onClick={onClose}

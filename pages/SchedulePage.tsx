@@ -38,7 +38,7 @@ const SchedulePage: React.FC = () => {
     }, 1000);
   };
 
-  const inputStyles = "w-full px-4 py-3 bg-brand-light dark:bg-brand-dark text-brand-text-dark dark:text-brand-text-light border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-colors";
+  const inputStyles = "w-full px-4 py-3 bg-brand-light-bg dark:bg-brand-dark text-brand-text-dark dark:text-brand-text-light border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-colors";
 
   return (
     <div className="bg-transparent py-16 md:py-24">
@@ -51,7 +51,7 @@ const SchedulePage: React.FC = () => {
         </AnimatedSection>
 
         <AnimatedSection>
-          <div className="max-w-2xl mx-auto bg-brand-light-gray dark:bg-brand-gray p-8 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700">
+          <div className="max-w-2xl mx-auto bg-brand-light-surface dark:bg-brand-gray p-8 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700">
             <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-2 uppercase tracking-wider">Nome Completo</label>

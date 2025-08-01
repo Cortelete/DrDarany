@@ -7,7 +7,7 @@ const InstagramIcon: React.FC<{className?: string}> = ({className}) => (
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-brand-light dark:bg-brand-gray text-brand-text-dark dark:text-brand-text-light">
+    <footer className="bg-brand-light-bg dark:bg-brand-gray text-brand-text-dark dark:text-brand-text-light">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
           <div className="md:col-span-1 text-center md:text-left">

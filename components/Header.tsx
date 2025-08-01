@@ -56,7 +56,7 @@ const Header: React.FC = () => {
   );
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-brand-light/90 dark:bg-brand-gray/90 backdrop-blur-md shadow-lg text-brand-text-dark dark:text-brand-text-light">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-brand-light-surface/90 dark:bg-brand-gray/90 backdrop-blur-md shadow-lg text-brand-text-dark dark:text-brand-text-light">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2 group">
             <img 
@@ -105,7 +105,7 @@ const Header: React.FC = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="lg:hidden bg-brand-light/95 dark:bg-brand-gray/95">
+        <div className="lg:hidden bg-brand-light-surface/95 dark:bg-brand-gray/95">
           <nav className="flex flex-col items-center space-y-4 px-6 pt-4 pb-8 text-base font-medium">
             <NavLinksComponent onClick={() => setIsMenuOpen(false)}/>
           </nav>
