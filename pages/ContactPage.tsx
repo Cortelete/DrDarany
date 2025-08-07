@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import AnimatedSection from '../components/AnimatedSection';
-import Modal from '../components/Modal';
-import { useModal } from '../hooks/useModal';
 import { WHATSAPP_NUMBER, WhatsAppIcon } from '../constants';
 
 const MailIcon: React.FC<{className?: string}> = ({className}) => (
@@ -17,34 +14,49 @@ const MapPinIcon: React.FC<{className?: string}> = ({className}) => (
 
 
 const ContactPage: React.FC = () => {
-  const location = useLocation();
-  const subjectFromState = location.state?.subject || '';
-
-  const { isOpen, open, close } = useModal();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    phone: '',
     message: ''
   });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'error'>('idle');
-
-  useEffect(() => {
-    setFormData(prev => ({ ...prev, subject: subjectFromState }));
-  }, [subjectFromState]);
+  const [status, setStatus] = useState<'idle' | 'submitting'>('idle');
+  const [copyStatus, setCopyStatus] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('submitting');
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('dr.darany@gmail.com');
+    setCopyStatus(true);
     setTimeout(() => {
+      setCopyStatus(false);
+    }, 2000);
+  };
+
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (status === 'submitting') return;
+
+    setStatus('submitting');
+    
+    let message = `*MENSAGEM DE CONTATO VIA SITE*\n\n`;
+    message += `*NOME:* ${formData.name}\n`;
+    message += `*TELEFONE:* ${formData.phone}\n`;
+    if (formData.email) {
+      message += `*E-MAIL:* ${formData.email}\n`;
+    }
+    message += `\n*MENSAGEM:*\n${formData.message}`;
+    
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappUrl, '_blank');
+    
+    setTimeout(() => {
+        setFormData({ name: '', email: '', phone: '', message: '' });
         setStatus('idle');
-        open();
-        setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1500);
+    }, 1000);
   };
 
   const contactActions = [
@@ -67,9 +79,9 @@ const ContactPage: React.FC = () => {
     { 
       icon: MailIcon, 
       iconColor: 'text-red-500',
-      text: "Enviar E-mail",
+      text: "Copiar E-mail",
       subtext: "dr.darany@gmail.com",
-      href: "mailto:dr.darany@gmail.com",
+      id: 'email-copy',
       bg: "bg-red-500/5 dark:bg-red-500/10",
     },
   ];
@@ -77,15 +89,6 @@ const ContactPage: React.FC = () => {
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={close} title="MENSAGEM ENVIADA!">
-        <div className="text-center space-y-4">
-            <p className="text-gray-700 dark:text-gray-300">Agradecemos seu contato. Retornaremos o mais breve possível.</p>
-             <button onClick={close} className="btn-primary">
-                Fechar
-            </button>
-        </div>
-      </Modal>
-
       <div className="py-16 md:py-24 bg-transparent">
         <div className="container mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
@@ -99,6 +102,23 @@ const ContactPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {contactActions.map(action => {
                     const IconComponent = action.icon;
+                    if (action.id === 'email-copy') {
+                       return (
+                            <button
+                                key={action.text}
+                                onClick={handleCopyEmail}
+                                className={`group block relative p-6 rounded-xl text-center ${action.bg} border border-black/5 dark:border-white/5 overflow-hidden transition-transform duration-300 hover:-translate-y-2 reflection-hover w-full`}
+                            >
+                                <div className="inline-block mb-4">
+                                    <IconComponent className={`w-7 h-7 ${action.iconColor}`} />
+                                </div>
+                                <h3 className="font-bold text-lg text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide text-shadow-heading">
+                                    {copyStatus ? 'E-mail Copiado!' : action.text}
+                                </h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">{action.subtext}</p>
+                            </button>
+                       )
+                    }
                     return (
                         <a 
                             key={action.text}
@@ -121,18 +141,22 @@ const ContactPage: React.FC = () => {
           <AnimatedSection>
             <div className="bg-brand-light-surface dark:bg-brand-gray p-8 sm:p-10 rounded-xl shadow-2xl max-w-4xl mx-auto border border-gray-200 dark:border-gray-700">
               <h2 className="text-xl md:text-2xl font-serif text-brand-text-dark dark:text-brand-text-light mb-6 text-center uppercase tracking-wide text-shadow-heading">Ou Envie uma Mensagem Direta</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <input type="text" name="name" placeholder="Seu Nome" value={formData.name} onChange={handleChange} required className={inputStyles}/>
-                    <input type="email" name="email" placeholder="Seu E-mail" value={formData.email} onChange={handleChange} required className={inputStyles}/>
+                    <input type="text" name="name" placeholder="Seu Nome Completo" value={formData.name} onChange={handleChange} required className={inputStyles}/>
+                    <input type="tel" name="phone" placeholder="Seu Telefone (WhatsApp)" value={formData.phone} onChange={handleChange} required className={inputStyles} />
                   </div>
-                  <input type="text" name="subject" placeholder="Assunto" value={formData.subject} onChange={handleChange} required className={inputStyles}/>
+                  <input type="email" name="email" placeholder="Seu E-mail (Opcional)" value={formData.email} onChange={handleChange} className={inputStyles}/>
                   <textarea name="message" placeholder="Sua Mensagem" rows={5} value={formData.message} onChange={handleChange} required className={inputStyles}></textarea>
                   <div className="text-center">
-                    <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full sm:w-auto">
-                      {status === 'submitting' ? 'Enviando...' : 'Enviar Mensagem'}
+                    <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2">
+                      <WhatsAppIcon className="w-5 h-5"/>
+                      {status === 'submitting' ? 'Aguarde...' : 'Enviar via WhatsApp'}
                     </button>
                   </div>
+                   <p className="text-center text-xs text-gray-500 dark:text-gray-400 pt-2">
+                    Ao clicar, você será redirecionado para o WhatsApp com a mensagem pronta para envio.
+                  </p>
                 </form>
             </div>
           </AnimatedSection>
