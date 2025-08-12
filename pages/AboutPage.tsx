@@ -1,151 +1,136 @@
+
 import React from 'react';
 import AnimatedSection from '../components/AnimatedSection';
-import { MedalIcon, ScalesOfJusticeIcon } from '../constants';
-import Modal from '../components/Modal';
-import { useModal } from '../hooks/useModal';
 
-const CheckCircleIcon: React.FC<{className?: string}> = ({className}) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+// --- ICONS ---
+const StarIcon: React.FC<{className?: string}> = ({className}) => (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
 );
-
-const InfoIcon: React.FC<{className?: string}> = ({className}) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+const GraduationCapIcon: React.FC<{className?: string}> = ({className}) => (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 4 3 6 3s6-1.34 6-3v-5"/></svg>
 );
-
+const BriefcaseIcon: React.FC<{className?: string}> = ({className}) => (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+);
+const GlobeIcon: React.FC<{className?: string}> = ({className}) => (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+);
 
 const AboutPage: React.FC = () => {
-  const { isOpen: isCasernaOpen, open: openCaserna, close: closeCaserna } = useModal();
-  const { isOpen: isEstrategiaOpen, open: openEstrategia, close: closeEstrategia } = useModal();
 
-  const values = [
-    { title: 'Excelência', description: 'Busca incessante pela mais alta qualidade técnica e estratégica em cada caso que assumimos.' },
-    { title: 'Compromisso', description: 'Dedicação total à defesa dos direitos e interesses de nossos clientes, com lealdade e transparência.' },
-    { title: 'Integridade', description: 'Atuação pautada pela ética, honestidade e respeito, construindo relações de confiança mútua.' },
+  const timelineEvents = [
+    { title: "Início da Jornada Militar", description: "Ingressa nas Forças Armadas, dando os primeiros passos em uma carreira de serviço público e dedicação ao país." },
+    { title: "Pioneirismo e Liderança", description: "Cria e comanda o Grupo de Operações Especiais (GOE) da PMPR, uma unidade de elite que se tornou referência em operações táticas." },
+    { title: "Especialização Internacional", description: "Aprimora táticas e estratégias em cursos de renome mundial, incluindo Operações de Alto Risco na SWAT (Texas, USA)." },
+    { title: "Reconhecimento por Bravura", description: "É promovido por um distinto Ato de Bravura, um marco de honra e reconhecimento por sua coragem e dedicação." },
+    { title: "Ápice da Carreira na PMPR", description: "Atinge a patente de Coronel e assume o 6º Comando Regional, consolidando uma trajetória de liderança estratégica." },
+    { title: "A Nova Missão: Advocacia", description: "Hoje, dedica-se à advocacia, aplicando sua vasta experiência para defender os direitos de seus clientes com uma visão única e combativa." },
+  ];
+
+  const qualifications = [
+    { icon: BriefcaseIcon, title: 'Carreira Militar', details: 'Comandante de unidades de elite (GOE, BOPE), Chefe de seções estratégicas e Comandante do 6º Comando Regional.' },
+    { icon: GraduationCapIcon, title: 'Formação Jurídica', details: 'Doutor em Segurança Pública, Pós-graduado em Direito Penal e Militar, e Bacharel em Direito (OAB/PR 130.714).' },
+    { icon: GlobeIcon, title: 'Cursos Internacionais', details: 'Treinamentos com a SWAT (Texas) e T.E.E.S. (Tactical Explosive Entry School) nos Estados Unidos.' },
+    { icon: StarIcon, title: 'Honrarias', details: 'Promoção por Ato de Bravura, mais de 35 medalhas de mérito e incontáveis moções de aplauso.' },
   ];
 
   return (
-    <>
-      <Modal isOpen={isCasernaOpen} onClose={closeCaserna} title="Da Caserna ao Tribunal: Uma Jornada de Vocação">
-        <div className="text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-            <p>
-                A trajetória do Dr. Darany Luiz Alves de Oliveira é singular. Antes de se tornar advogado, ele integrou as fileiras das Forças Armadas, vivenciando em primeira mão o rigor, a dedicação e os valores que definem a vida militar. Essa experiência não foi apenas uma fase profissional, mas a fundação de sua verdadeira vocação.
-            </p>
-            <p>
-                Na caserna, ele percebeu a complexidade das relações hierárquicas e as particularidades jurídicas que permeiam o cotidiano militar. Viu colegas enfrentarem processos disciplinares e criminais sem o devido amparo de uma defesa que compreendesse as nuances do seu mundo. Foi essa percepção que acendeu a chama do Direito em seu coração, motivando-o a buscar a formação jurídica para se tornar a voz e o escudo daqueles que servem e protegem a nação.
-            </p>
-        </div>
-      </Modal>
+    <div className="bg-transparent py-16 md:py-24">
+      <div className="container mx-auto px-6 space-y-20 md:space-y-28">
 
-      <Modal isOpen={isEstrategiaOpen} onClose={closeEstrategia} title="Defesa Estratégica: A Vantagem da Dupla Experiência">
-        <div className="text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-            <p>
-                A advocacia do Dr. Darany não se baseia apenas em códigos e doutrinas. Ela é forjada na junção de duas realidades: a do militar e a do jurista. Essa fusão rara confere uma vantagem estratégica inestimável. Ele não apenas interpreta a lei; ele a aplica com a compreensão profunda da cultura, da linguagem e dos valores militares.
-            </p>
-            <p>
-                Ao defender um cliente, ele não vê apenas um caso, mas a carreira, a honra e o futuro de um profissional. Sabe o peso de uma acusação injusta no ambiente militar e a importância de uma defesa que seja técnica, mas também empática e contextualizada. É essa capacidade de transitar entre os dois universos que lhe permite construir teses defensivas mais sólidas, antecipar argumentos e se comunicar de forma eficaz com seus clientes e com as autoridades, garantindo uma proteção completa e diferenciada.
-            </p>
-        </div>
-      </Modal>
-
-      <div className="bg-transparent py-16 md:py-24">
-        <div className="container mx-auto px-6">
-          <AnimatedSection className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Nossa Trajetória</h1>
-            <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-shadow-heading">Conheça a história, os princípios e o compromisso que nos movem a cada dia.</p>
-          </AnimatedSection>
-
-          <AnimatedSection className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center mb-20">
-            <div className="md:col-span-3 order-2 md:order-1">
-              <h2 className="text-2xl md:text-3xl font-serif text-brand-text-dark dark:text-brand-text-light mb-6 uppercase tracking-wide text-shadow-heading">Dr. Darany Luiz Alves de Oliveira</h2>
-              <div className="space-y-4">
-                
-                <div className="group rounded-lg transition-colors duration-300 hover:bg-brand-gold/5 dark:hover:bg-brand-gold/10">
-                    <div className="flex items-start space-x-6 p-4">
-                        <div className="flex-shrink-0 bg-brand-light-bg dark:bg-brand-gray p-4 rounded-full border border-brand-gold/10">
-                            <MedalIcon className="w-8 h-8 text-brand-gold" />
-                        </div>
-                        <div>
-                            <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide text-shadow-heading">Da Caserna ao Tribunal</h3>
-                            <button onClick={openCaserna} className="text-gray-400 dark:text-gray-500 hover:text-brand-gold transition-colors" aria-label="Saiba mais sobre a jornada">
-                                <InfoIcon className="w-5 h-5" />
-                            </button>
-                            </div>
-                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                                Antes de enveredar pelos caminhos da advocacia, Dr. Darany Luiz Alves de Oliveira serviu às Forças Armadas, uma experiência que lhe proporcionou um profundo entendimento sobre a vida na caserna, a hierarquia e a disciplina. Foi essa vivência que despertou sua vocação para o Direito, ao testemunhar de perto os desafios jurídicos únicos enfrentados por militares.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="group rounded-lg transition-colors duration-300 hover:bg-brand-gold/5 dark:hover:bg-brand-gold/10">
-                    <div className="flex items-start space-x-6 p-4">
-                        <div className="flex-shrink-0 bg-brand-light-bg dark:bg-brand-gray p-4 rounded-full border border-brand-gold/10">
-                        <ScalesOfJusticeIcon className="w-8 h-8 text-brand-gold" />
-                        </div>
-                        <div>
-                        <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-xl font-bold font-serif text-brand-text-dark dark:text-brand-text-light uppercase tracking-wide text-shadow-heading">Defesa Estratégica</h3>
-                            <button onClick={openEstrategia} className="text-gray-400 dark:text-gray-500 hover:text-brand-gold transition-colors" aria-label="Saiba mais sobre a defesa estratégica">
-                                <InfoIcon className="w-5 h-5" />
-                            </button>
-                        </div>
-                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Motivado a defender aqueles que servem ao país, ele trilhou o caminho acadêmico, graduando-se em Direito e especializando-se em Direito Militar e Penal. Hoje, sua prática jurídica é a fusão de seu conhecimento técnico com a experiência prática da vida militar. Essa combinação rara permite que ele ofereça uma defesa que não apenas aborda a lei, mas também compreende a cultura e os valores dos seus clientes, atuando como um verdadeiro parceiro na proteção de suas carreiras e direitos.
-                        </p>
-                        </div>
-                    </div>
-                </div>
-
-              </div>
-            </div>
-            <div className="md:col-span-2 order-1 md:order-2 flex justify-center items-center">
-              <div className="bg-brand-light-surface dark:bg-brand-gray p-8 rounded-lg shadow-xl overflow-hidden border-4 border-brand-gold/20 w-full max-w-[350px] aspect-square">
+        {/* --- INTRO SECTION --- */}
+        <AnimatedSection className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+          <div className="lg:col-span-2 flex justify-center">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-brand-gold-dark via-brand-gold to-brand-gold-light rounded-full blur-md opacity-40 group-hover:opacity-70 transition duration-500"></div>
+              <div className="relative bg-brand-light-surface dark:bg-brand-gray p-4 rounded-full shadow-xl border-2 border-brand-gold/30 w-64 h-64 md:w-72 md:h-72 flex items-center justify-center">
                 <img 
                   src="/images/logoDrD.png" 
                   alt="Logo Darany Advocacia" 
-                  className="object-contain w-full h-full dark:mix-blend-screen"
+                  className="object-contain w-full h-full dark:mix-blend-screen p-4"
                 />
               </div>
             </div>
-          </AnimatedSection>
+          </div>
+          <div className="lg:col-span-3 text-center lg:text-left">
+            <h1 className="text-3xl md:text-4xl font-serif text-brand-text-dark dark:text-brand-text-light uppercase tracking-wider text-shadow-heading">Dr. Darany Luiz Alves de Oliveira</h1>
+            <p className="mt-2 text-xl md:text-2xl font-serif text-gold-gradient">Uma Vida Dedicada à Segurança e à Justiça</p>
+            <p className="mt-6 text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Natural de Ponta Grossa-PR, Dr. Darany construiu uma carreira de 35 anos na Polícia Militar do Paraná, culminando no posto de Coronel, a mais alta patente da corporação. Sua jornada foi marcada por liderança, estratégia e um notável <strong>Ato de Bravura</strong>.
+              <br/><br/>
+              Agora, como advogado (OAB/PR 130.714), ele aplica toda a sua experiência para oferecer uma defesa técnica e diferenciada, com sedes em <strong>Curitiba e Ponta Grossa</strong>.
+            </p>
+          </div>
+        </AnimatedSection>
+        
+        {/* --- TIMELINE SECTION --- */}
+        <AnimatedSection>
+            <h2 className="text-2xl md:text-3xl font-serif text-center uppercase tracking-wider text-gold-gradient text-shadow-heading mb-16">Trajetória de Destaque</h2>
+            <div className="relative max-w-4xl mx-auto">
+                <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-brand-gold/20" aria-hidden="true"></div>
+                {timelineEvents.map((event, index) => (
+                    <div key={index} className="relative mb-12">
+                        <div className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                            <div className={`w-full md:w-[calc(50%-2.5rem)] p-6 bg-brand-light-surface dark:bg-brand-gray rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:border-brand-gold/50 transition-colors duration-300 ${index % 2 === 0 ? 'text-left' : 'md:text-right'}`}>
+                                <h3 className="text-lg md:text-xl font-serif font-bold mb-2 text-brand-text-dark dark:text-brand-text-light uppercase text-shadow-heading">{event.title}</h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-400">{event.description}</p>
+                            </div>
+                        </div>
+                        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 bg-brand-light-surface dark:bg-brand-gray rounded-full border-2 border-brand-gold p-1">
+                          <div className="w-3 h-3 bg-brand-gold rounded-full"></div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </AnimatedSection>
 
-          <AnimatedSection className="mb-20">
-              <div className="text-center mb-12">
-                  <h2 className="text-2xl md:text-3xl font-serif uppercase tracking-wider text-gold-gradient text-shadow-heading">Nossos Pilares</h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                  {values.map((item, index) => (
-                  <div key={index} className="relative overflow-hidden bg-brand-light-surface dark:bg-brand-gray p-8 rounded-lg shadow-md border-b-4 border-brand-gold transition-transform duration-300 hover:-translate-y-2 reflection-hover">
-                      <h3 className="text-xl md:text-2xl font-serif text-brand-gold mb-3 uppercase tracking-wide text-shadow-heading">{item.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
-                  </div>
-                  ))}
-              </div>
-          </AnimatedSection>
-          
-          <AnimatedSection>
-              <h2 className="text-2xl md:text-3xl font-serif text-center mb-8 uppercase tracking-wider text-gold-gradient text-shadow-heading">Qualificações</h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                  {[
-                      'Ex-militar das Forças Armadas',
-                      'Especialista em Direito Militar e Processos Disciplinares',
-                      'Pós-graduado em Direito Penal e Processo Penal',
-                      'Advocacia para Forças de Segurança Pública',
-                      'Membro atuante da OAB/PR',
-                      'Defesa em todas as instâncias judiciais'
-                  ].map(cert => (
-                      <li key={cert} className="group flex items-center text-gray-700 dark:text-gray-300 p-3 rounded-lg transition-all duration-300 hover:bg-brand-gold/5 dark:hover:bg-brand-gold/10 hover:translate-x-1">
-                          <CheckCircleIcon className="w-5 h-5 mr-3 text-brand-gold flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                          <span className="uppercase tracking-wide text-sm font-medium transition-colors duration-300 group-hover:text-brand-gold dark:group-hover:text-brand-gold-light">{cert}</span>
-                      </li>
-                  ))}
-              </ul>
-          </AnimatedSection>
+        {/* --- QUALIFICATIONS GRID --- */}
+        <AnimatedSection>
+            <h2 className="text-2xl md:text-3xl font-serif text-center uppercase tracking-wider text-gold-gradient text-shadow-heading mb-16">Qualificações Essenciais</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {qualifications.map((q, index) => {
+                    const Icon = q.icon;
+                    return (
+                        <div key={index} className="bg-brand-light-surface dark:bg-brand-gray p-8 rounded-xl shadow-lg text-center flex flex-col items-center border-b-4 border-brand-gold transition-transform duration-300 hover:-translate-y-2">
+                            <div className="bg-brand-gold/10 p-4 rounded-full mb-4">
+                                <Icon className="w-8 h-8 text-brand-gold" />
+                            </div>
+                            <h3 className="text-lg font-serif font-bold text-brand-text-dark dark:text-brand-text-light mb-2 uppercase tracking-wide text-shadow-heading">{q.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-400 text-sm flex-grow">{q.details}</p>
+                        </div>
+                    );
+                })}
+            </div>
+        </AnimatedSection>
+        
+        {/* --- EDUCATION DETAILS --- */}
+        <AnimatedSection>
+            <h2 className="text-2xl md:text-3xl font-serif text-center uppercase tracking-wider text-gold-gradient text-shadow-heading mb-16">Formação Acadêmica</h2>
+            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 bg-brand-light-surface dark:bg-brand-gray p-8 md:p-12 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                <div className="space-y-4">
+                    <h3 className="text-xl font-serif font-bold text-brand-gold uppercase tracking-wide text-shadow-heading">Nível Superior</h3>
+                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+                        <li>Bacharel em Direito</li>
+                        <li>Bacharel em Segurança Pública</li>
+                        <li>Bacharel em Teologia</li>
+                        <li>Licenciatura Plena em Educação Física</li>
+                    </ul>
+                </div>
+                <div className="space-y-4">
+                    <h3 className="text-xl font-serif font-bold text-brand-gold uppercase tracking-wide text-shadow-heading">Pós-Graduação e Doutorado</h3>
+                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+                        <li><strong>Doutor</strong> em Segurança Pública</li>
+                        <li><strong>Mestre</strong> em Segurança Pública</li>
+                        <li><strong>Mestre</strong> em Teologia com Ênfase em Missiologia Urbana</li>
+                        <li><strong>Especialista</strong> em Normas Penais</li>
+                        <li>Pós-graduado em Direito Militar, Processual Penal, Ambiental, e outras áreas.</li>
+                    </ul>
+                </div>
+            </div>
+        </AnimatedSection>
 
-        </div>
       </div>
-    </>
+    </div>
   );
 };
 
