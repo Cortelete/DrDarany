@@ -53,9 +53,11 @@
       };
     </script>
     <style>
-      /* Hide default cursor to allow for custom cursor */
-      body, a, button, [role="button"], input, textarea, select {
-        cursor: none !important;
+      /* Hide default cursor for custom cursor on non-touch devices */
+      @media (pointer: fine) {
+        body, a, button, [role="button"], input, textarea, select {
+          cursor: none !important;
+        }
       }
       
       /* Custom scrollbar for a more refined look */
