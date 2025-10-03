@@ -28,11 +28,21 @@ const GoldenArrowCursorIcon: React.FC<{ isInteractive: boolean }> = ({ isInterac
 
 
 const CustomCursor: React.FC = () => {
+    const [isPointerDevice, setIsPointerDevice] = useState(false);
     const [isInteractive, setIsInteractive] = useState(false);
     const cursorX = useMotionValue(-100);
     const cursorY = useMotionValue(-100);
 
     useEffect(() => {
+        // This check ensures we're on the client and the primary input is a mouse or similar.
+        if (typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches) {
+            setIsPointerDevice(true);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!isPointerDevice) return;
+
         const moveCursor = (e: MouseEvent) => {
             cursorX.set(e.clientX);
             cursorY.set(e.clientY);
@@ -54,7 +64,12 @@ const CustomCursor: React.FC = () => {
             window.removeEventListener('mousemove', moveCursor);
             document.removeEventListener('mouseover', checkInteractivity);
         };
-    }, [cursorX, cursorY]);
+    }, [isPointerDevice, cursorX, cursorY]);
+    
+    // Don't render the custom cursor on touch devices.
+    if (!isPointerDevice) {
+        return null;
+    }
     
     return (
         <motion.div
