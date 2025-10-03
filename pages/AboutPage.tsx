@@ -56,9 +56,11 @@ const AboutPage: React.FC = () => {
             <h1 className="text-3xl md:text-4xl font-serif text-brand-text-dark dark:text-brand-text-light uppercase tracking-wider text-shadow-heading">Dr. Darany Luiz Alves de Oliveira</h1>
             <p className="mt-2 text-xl md:text-2xl font-serif text-gold-gradient">Uma Vida Dedicada à Segurança e à Justiça</p>
             <p className="mt-6 text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Natural de Ponta Grossa-PR, Dr. Darany construiu uma carreira de 35 anos na Polícia Militar do Paraná, culminando no posto de Coronel, a mais alta patente da corporação. Sua jornada foi marcada por liderança, estratégia e um notável <strong>Ato de Bravura</strong>.
+              Natural de Ponta Grossa-PR, o Dr. Darany Luiz Alves de Oliveira construiu uma trajetória de 35 anos na Polícia Militar do Paraná, chegando ao posto de Coronel, a mais alta patente da corporação, reconhecido por sua liderança, estratégia e por um notável <strong>Ato de Bravura</strong>.
               <br/><br/>
-              Agora, como advogado (OAB/PR 130.714), ele aplica toda a sua experiência para oferecer uma defesa técnica e diferenciada, com sedes em <strong>Curitiba e Ponta Grossa</strong>.
+              Hoje, como advogado (OAB/PR 130.714), coloca toda essa experiência a serviço do Direito Militar, atuando com ética, técnica e comprometimento na defesa dos direitos de militares e seus familiares.
+              <br/><br/>
+              Com sedes em <strong>Curitiba e Ponta Grossa</strong>, sua advocacia se destaca por unir disciplina militar, conhecimento jurídico e dedicação integral a cada cliente.
             </p>
           </div>
         </AnimatedSection>
